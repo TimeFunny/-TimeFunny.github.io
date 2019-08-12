@@ -127,3 +127,39 @@ with contextlib2.ExitStack() as tf_record_close_stack:
 
 ```
 
+
+
+# 3.  Training
+
+```shell
+> python .\object_detection\model_main.py  
+--pipeline_config_path="D:\workspace\Train_Script\faster_rcnn_inception_v2_custom.config" 
+--model_dir="..\..\workspace\model_0\"  --num_train_steps=300000 
+--sample_1_of_n_eval_examples=1  --alsologtostderr
+```
+
+
+
+## 4. Export Inference Graph
+
+```shell
+> python .\object_detection\export_inference_graph.py --input_type=image_tensor 
+--trained_checkpoint_prefix="D:\workspace\model_0\model.ckpt-300000" 
+--output_directory="D:\workspace\model_0\inference\"  
+--pipeline_config_path="D:\workspace\Train_Script\faster_rcnn_inception_v2_custom.config"
+```
+
+## 5. test
+
+```
+
+```
+
+## 6. opencv
+
+### 获取pbtxt文件
+
+```shell
+> python .\tf_convert\tf_text_graph_faster_rcnn.py --input='D:\workspace\model_0\\inference\\frozen_inference_graph.pb' --config='D:\workspace\model_0\\pipeline.config' --output="D:\workspace\model_0\inference\graph.pbtxt"
+```
+
