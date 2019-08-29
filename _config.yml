@@ -100,8 +100,9 @@ toc:
   decodeEntities: false
   anchor:
     position: after
-    symbol: ''
+    symbol: '#'
     style: header-anchor
+    
  
 plugins: hexo-math
 
