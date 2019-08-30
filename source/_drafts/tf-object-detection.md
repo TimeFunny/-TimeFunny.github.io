@@ -12,6 +12,7 @@
 
 ```
 > git clone https://github.com/tensorflow/models
+> git checkout v1.13.0
 # window 请使用指定版本，否则会报错(疑似原因：不识别通配符*)
 protobuf: https://github.com/protocolbuffers/protobuf/releases/tag/v3.4.0
 ```
@@ -61,7 +62,10 @@ protobuf: https://github.com/protocolbuffers/protobuf/releases/tag/v3.4.0
   ```
   PATH\models\research
   PATH\models\research\slim
+  # or
+  setx /m PYTHONPATH "PATH\models\research;PATH\models\research\slim"
   ```
+
 
 
  ## 6.  Testing the Installation
@@ -141,6 +145,14 @@ with contextlib2.ExitStack() as tf_record_close_stack:
 
 
 ## 4. Export Inference Graph
+
+- **meta file**: describes the saved graph structure, includes GraphDef, SaverDef, and so on; then apply `tf.train.import_meta_graph('/tmp/model.ckpt.meta')`, will restore `Saver` and `Graph`.
+
+- **index file**: it is a string-string immutable table(tensorflow::table::Table). Each key is a name of a tensor and its value is a serialized BundleEntryProto. Each BundleEntryProto describes the metadata of a tensor: which of the "data" files contains the content of a tensor, the offset into that file, checksum, some auxiliary data, etc.
+
+- **data file**: it is TensorBundle collection, save the values of all variables.
+
+  
 
 ```shell
 > python .\object_detection\export_inference_graph.py --input_type=image_tensor 
