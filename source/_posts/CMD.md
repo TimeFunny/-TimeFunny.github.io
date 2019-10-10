@@ -13,6 +13,7 @@ tags:
 > echo %PATH%
 
 ## 添加环境变量
+# batch文件中, 当前脚本的目录
 > SET "SCRIPT_DIR=%~dp0"
 > SET "PATH=%SCRIPT_DIR%\x64/vc14/bin;%PATH%"
 
