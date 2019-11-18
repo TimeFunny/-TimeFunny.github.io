@@ -49,23 +49,26 @@ user@host's password:
 
 ## 2.  Perform SSH Login Without Password
 
-### 1.  [Generate key](https://en.wikipedia.org/wiki/Ssh-keygen)
+### 1. Generate key
+
+[Generate key](https://en.wikipedia.org/wiki/Ssh-keygen)
 
 ```shell
-# -t: type  -P: passphrase  -f: ~/.ssh/id_rsa(default)
+# -t: type  -f: ~/.ssh/id_rsa(default)
 ## no passphrase
 > ssh-keygen -t rsa -P "" -f key_path
+
+# copy the public key(*.pub) to server(~/.ssh/authorized_keys)
+> ssh-copy-id -i ~/.ssh/id_rsb.pub(publice key) user@host
 ```
 
 ### 2. Login In
 
 ```shell
-# copy the public key to server(~/.ssh/authorized_keys)
-> ssh-copy-id -i ~/.ssh/id_rsb.pub(publice key) user@host
-
-# login
+# 使用默认key(~/.ssh/id_rsa)
 > ssh user@host
-## 指定key文件
+
+# 指定key文件
 > ssh -i key_path(private key) user@host
 ```
 
@@ -75,7 +78,7 @@ user@host's password:
 ## generate passphrse(option)
 > opensshl rand -hex 5
 
-## passphrase(min five chars)
+## passphrase(min five chars) -P: passphrase 
 > ssh-keygen -t rsa -P "yesno" -f ~/.ssh/id_key_rsa
 
 ## 如果生成密钥包含passphrase,登陆ssh server需要输入passphrase
@@ -94,5 +97,48 @@ Enter passphrase for /home/ty/.ssh/id_rsa:
 
 ## 查看所有已经缓冲的keys
 > ssh-add -l 
+```
+
+
+
+# 3. Forward
+
+[Forwarding](https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/index.html)
+
+#### `local port`:  client port(application client, no ssh client)
+
+#### `remote port`:  server port(application server, no ssh server )
+
+## 1. local forwarding
+
+ssh client  <——> application client ;
+
+ssh server <——> application server
+
+```shell
+# in ssh client
+# ssh -L <local port>:<remote host>:<remote port> <SSH hostname>
+> ssh -L 80:localhost:80 ip/hostname
+```
+
+## 2. remote forwarding
+
+ssh client  <——> application server ;
+
+ssh server <——> application client
+
+```shell
+# in ssh client
+# ssh -R <local port>:<remote host>:<remote port> <SSH hostname>
+> ssh -R 80:localhost:80 ip/hostname
+```
+
+## 3. dynamic forwarding
+
+简易的端口代理, 实现不受限的远程访问(ssh server 端可以访问的所有服务)
+
+```shell
+# ssh -D <local port> <SSH Server>
+> ssh -D 8080 ip/hostname
 ```
 
