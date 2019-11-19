@@ -5,13 +5,15 @@ tags:
  - docker
 ---
 
-[TOC]
+<!-- toc -->
 
 # Docker
 
 ## 1. install
 
-### 1. [docker]( https://docs.docker.com/install/linux/docker-ce/ubuntu/ )
+### 1. docker
+
+[docker]( https://docs.docker.com/install/linux/docker-ce/ubuntu/ )
 
 ```shell
 # SET UP THE REPOSITORY
@@ -50,7 +52,9 @@ tags:
 > sudo systemctl restart docker
 ```
 
-### 3. [Manage Docker as a non-root user]( https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user )
+### 3. Manage Docker as a non-root user
+
+[Manage Docker as a non-root user]( https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user )
 
 ```shell
 # Create the docker group.
@@ -79,9 +83,7 @@ tags:
 > sudo systemctl disable docker
 ```
 
-
-
-#### Uninstall Docker CE
+#### 5. Uninstall Docker CE
 
 ```shell
 # Uninstall the Docker CE package:
@@ -92,15 +94,20 @@ tags:
 
 
 
-## 2. basic
+## 2. basic command
 
 ### CPU
 
+[container never stop automatically](https://stackoverflow.com/questions/30209776/docker-container-will-automatically-stop-after-docker-run-d)
+
 ```shell
 # create a container
-# -d: detach mode(backgroud),  container(test) never stop automatically
-# docker run options image_id command
-> docker run -dit --name test image  /bin/bash
+# --name: specify a name to container
+# format: docker run options image_id command
+> docker run -dt --name test image
+
+# Attaching a Shell to a Container
+>  docker container  exec -it test /bin/bash
 ```
 
 ### GPU
