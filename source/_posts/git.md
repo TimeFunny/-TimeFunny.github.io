@@ -8,7 +8,8 @@ tags:
 <!-- toc -->
 
 1. [git docs](https://git-scm.com/docs)
-2. [git  tutorials](https://www.atlassian.com/git/tutorials/)
+2. [git tutorials](https://www.atlassian.com/git/tutorials/)
+3. [github help]( https://help.github.com/en/github )
 
 # basic
 
