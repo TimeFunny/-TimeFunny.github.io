@@ -129,3 +129,25 @@ $ docker run --gpus '"device=UUID-ABCDEF,1"' nvidia/cuda:9.0-base nvidia-smi
 $ docker run --gpus all,capabilities=utility nvidia/cuda:9.0-base nvidia-smi
 ```
 
+## 3. save a container as an image
+
+The `commit\export` operation will not include any data contained in volumes mounted inside the container.
+
+**在没有访问外网权限的内网区域内, 可方便在不同host上面进行拷贝移植**
+
+```shell
+# Create a tar file from a container’s changes
+> docker export container >  bak.tar
+
+# reload, create a new image
+> cat bak.tar | docker import - [REPOSITORY[:TAG]]
+## 
+> docker import bak.tar [REPOSITORY[:TAG]]
+```
+
+**创建的 image直接保存 `/var/lib/docker`目录, 方便创建具有相同运行时的container环境**
+
+```shell
+# Create a new image from a container’s changes
+> docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
+```
