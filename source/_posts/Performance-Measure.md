@@ -165,5 +165,5 @@ cost_{norm} =  \frac{FNR \times p \times cost_0 + FPR \times (1-p) \times cost_1
 $$
 其中，假反例率FNR=1-TPR。  
 　**曲线绘制方法**：ROC曲线上每一点对应了代价平面上的一条线段，设ROC曲线上的坐标为(TPR,FPR),计算对应的FNR，然后在代价平面绘制(**0,FPR**) 到 (**1，FNR**)线段。所有线段之下的公有面积即所有条件下学习器的期望总体代价。
-　![ROC curve](../images/Curve_roc.png)
+　![ROC curve](/images/Curve_roc.png)
 

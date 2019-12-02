@@ -45,7 +45,13 @@ tags:
 ```shell
 > ssh user@host
 user@host's password:
+
+# auto enter passwd
+> apt-get installl sshpass
+> sshpass -p passwd ssh username@ipaddr
 ```
+
+
 
 ## 2.  Perform SSH Login Without Password
 
@@ -109,6 +115,12 @@ Enter passphrase for /home/ty/.ssh/id_rsa:
 
 #### `remote port`:  server port(application server, no ssh server )
 
+ -f      Requests `ssh` to go to background just before command execution.  This is useful if
+             `ssh` is going to ask for passwords or passphrases, but the user wants it in the
+             background.
+
+-N      Do not execute a remote command.  This is useful for just **forwarding ports**.
+
 ## 1. local forwarding
 
 ssh client  <——> application client ;
@@ -118,7 +130,7 @@ ssh server <——> application server
 ```shell
 # in ssh client
 # ssh -L <local port>:<remote host>:<remote port> <SSH hostname>
-> ssh -L 80:localhost:80 ip/hostname
+> ssh -N -f -L 80:localhost:80 ip/hostname
 ```
 
 ## 2. remote forwarding
@@ -130,7 +142,7 @@ ssh server <——> application client
 ```shell
 # in ssh client
 # ssh -R <local port>:<remote host>:<remote port> <SSH hostname>
-> ssh -R 80:localhost:80 ip/hostname
+> ssh -N -f -R 80:localhost:80 ip/hostname
 ```
 
 ## 3. dynamic forwarding

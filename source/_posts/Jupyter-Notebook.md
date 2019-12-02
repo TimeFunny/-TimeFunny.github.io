@@ -70,8 +70,12 @@ tags:
 
 # [访问远程server运行的Jupyter](https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/)
 
-```
-> ssh myserver -L 8008(local port):localhost:8888(server port) -l(username)  username
+```shell
 # localhost指的是myserver，因为目标主机是相对myserver而言的
+> ssh myserver -L 8008(local port):localhost:8888(server port) -l(username)  username
+
+# The first option -N tells SSH that no remote commands will be executed, and is useful for port forwarding. 
+# The second option -f Requests ssh to go to background just before command execution.
+> ssh -N -f -L localhost:8888:localhost:8889 remote_user@remote_host
 ```
 

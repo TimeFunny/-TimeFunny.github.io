@@ -15,7 +15,7 @@ tags:
 
 ### method 1
 
-```
+```shell
 # To enable universe repository
 > sudo add-apt-repository universe
 > sudo add-apt-repository main
@@ -29,7 +29,9 @@ tags:
 
 ### method 2
 
-```
+[python docs](https://docs.python.org/3.6/using/unix.html#building-python)
+
+```shell
 # Prerequsities
 > sudo apt-get install build-essential checkinstall
 > sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
@@ -47,7 +49,7 @@ tags:
 
 ### pip operation
 
-```
+```shell
 # pip  upgrade
 > python3/python3.6/python2  -m  pip install --upgrade pip
 
@@ -61,7 +63,7 @@ tags:
 
 #### conda environment configure
 
-```
+```shell
 # conda
 > conda create -n name python=version otherLibrary
 > conda env export > environment.yml
@@ -70,7 +72,7 @@ tags:
 
 #### pip packages configure
 
-```
+```shell
 # pip
 > pip freeze > requirements.txt
 > pip install -r requirements.txt
@@ -81,7 +83,7 @@ tags:
 - [tsinghua conda](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/)
 - [tsinghua pypi](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)
 
-```
+```shell
 # conda mirror
 # 优先使用清华conda镜像
 > conda config --prepend channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
