@@ -141,7 +141,7 @@ ssh server <——> application client
 
 ```shell
 # in ssh client
-# ssh -R <local port>:<remote host>:<remote port> <SSH hostname>
+# ssh -R <ssh server port>:<ssh client>:<ssh client port> <SSH server hostname>
 > ssh -N -f -R 80:localhost:80 ip/hostname
 ```
 
