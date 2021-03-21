@@ -35,8 +35,8 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
-relative_link: false
+post_asset_folder: true
+relative_link: true
 future: true
 highlight:
   enable: true
@@ -82,11 +82,11 @@ theme_config:
 deploy:
   - type: git
     # repo: git@github.com:TimeFunny/TimeFunny.github.io.git
-    repo: https://github.com/TimeFunny/TimeFunny.github.io
+    repo:  git@github.com:TimeFunny/TimeFunny/TimeFunny.github.io
     branch: master
     message: Blog content update
     name: TimeFunny
-    email: Time_Funny@outlook.com
+    email: 229774604@qq.com
     
     
 markdown:

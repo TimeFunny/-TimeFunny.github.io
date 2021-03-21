@@ -1,7 +1,9 @@
 ---
 title: Cmake Tutorial
 date: 2019-08-03 15:50:49
-tags:
+tags: 
+categories: 
+	- Programming
 ---
 <!-- toc -->
 
