@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>Network Configuration and Troubleshooting | Personal Blog Web</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="shell,Network command">
+    
+    <meta name="description" content="1. ifconfig command 2. ping command 3. traceroute command 4. NETSTAT  command 5. dig command 6. nslookup command 7. route command 8. host command 9. arp command 10. hostname  command 11. GUI tool s">
+<meta name="keywords" content="shell,Network command">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Network Configuration and Troubleshooting">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/Network-Configuration-and-Troubleshooting/index.html">
+<meta property="og:site_name" content="Personal Blog Web">
+<meta property="og:description" content="1. ifconfig command 2. ping command 3. traceroute command 4. NETSTAT  command 5. dig command 6. nslookup command 7. route command 8. host command 9. arp command 10. hostname  command 11. GUI tool s">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-29T12:10:44.629Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Network Configuration and Troubleshooting">
+<meta name="twitter:description" content="1. ifconfig command 2. ping command 3. traceroute command 4. NETSTAT  command 5. dig command 6. nslookup command 7. route command 8. host command 9. arp command 10. hostname  command 11. GUI tool s">
+    
+
+    
+        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="../../../../css/images/pexels-photo-693521.png">
+    
+
+    <link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="../../../../css/style.css">
+
+    <script src="../../../../libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../index.html">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/Cpp/">Cpp</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/GDB-Tool/">GDB Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/OTN/">OTN</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/Programming/">Programming</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Network-Configuration-and-Troubleshooting" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Network Configuration and Troubleshooting
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="" class="article-date">
+            <time datetime="2019-08-26T03:45:27.000Z" itemprop="datePublished">2019-08-26</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="../../../../tags/Network-command/">Network command</a>, <a class="tag-link" href="../../../../tags/shell/">shell</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <div class="toc">
+<!-- toc -->
+<ul>
+<li><a href="#1-ifconfig-command">1. <code>ifconfig</code> command</a></li>
+<li><a href="#2-ping-command">2. <code>ping</code> command</a></li>
+<li><a href="#3-traceroute-command">3. <code>traceroute</code> command</a></li>
+<li><a href="#4-netstat-command">4. <code>NETSTAT</code>  command</a></li>
+<li><a href="#5-dig-command">5. <code>dig</code> command</a></li>
+<li><a href="#6-nslookup-command">6. <code>nslookup</code> command</a></li>
+<li><a href="#7-route-command">7. <code>route</code> command</a></li>
+<li><a href="#8-host-command">8. <code>host</code> command</a></li>
+<li><a href="#9-arp-command">9. <code>arp</code> command</a></li>
+<li><a href="#10-hostname-command">10. <code>hostname</code>  command</a></li>
+<li><a href="#11-gui-tool-system-config-network">11. GUI tool <code>system-config-network</code></a></li>
+<li><a href="#12-ethtool-command">12. <code>ethtool</code> command</a></li>
+<li><a href="#13-iwconfig-command">13. <code>iwconfig</code> command</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+<h2><span id="p-1-ifconfig-command"> 1.  <code>ifconfig</code> command</span><a href="#p-1-ifconfig-command" class="header-anchor">#</a></h2>
+<p><code>ifconfig</code> (<strong>interface configurator</strong>) command is use to initialize an interface, assign IP Address to interface and enable or disable interface on demand.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> ifconfig</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> ifconfig with interface (eth0) command only shows specific interface</span><br><span class="line"><span class="meta">&gt;</span> ifconfig eth0</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Assigning an IP Address and Gateway to interface on the fly. The setting will be removed in case of system reboot.</span><br><span class="line"><span class="meta">&gt;</span> ifconfig eth0 192.168.50.5 netmask 255.255.255.0</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> enable Specific Interface</span><br><span class="line"><span class="meta">&gt;</span> ifup eth0</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> disable Specific Interface</span><br><span class="line"><span class="meta">&gt;</span> ifdown eth0</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> set MTU Size</span><br><span class="line"><span class="meta">&gt;</span> ifconfig  eth0 mtu xxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> set Interface in Promiscuous mode</span><br><span class="line"><span class="meta">#</span> Network interface only received packets belongs to that particular NIC. If you put interface in promiscuous mode it will received all the packets.</span><br><span class="line"><span class="meta">&gt;</span> ifconfig eht0 - promisc</span><br></pre></td></tr></table></figure>
+<h2><span id="p-2-ping-command"> 2. <code>ping</code> command</span><a href="#p-2-ping-command" class="header-anchor">#</a></h2>
+<p><code>PING</code> (<strong>Packet INternet Groper</strong>) command is the best way to test connectivity between <strong>two nodes</strong>. Whether it is <strong>Local Area Network</strong> (<strong>LAN</strong>) or <strong>Wide Area Network</strong> (<strong>WAN</strong>). Ping use <strong>ICMP</strong> (<strong>Internet Control Message Protocol</strong>) to communicate to other devices. You can ping host name of <strong>ip address</strong> using below command.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> ping ip</span><br><span class="line"><span class="meta">&gt;</span> ping domainName</span><br><span class="line"><span class="meta">&gt;</span> ping -c times  ip/domainName</span><br></pre></td></tr></table></figure>
+<h2><span id="p-3-traceroute-command"> 3. <code>traceroute</code> command</span><a href="#p-3-traceroute-command" class="header-anchor">#</a></h2>
+<p><code>traceroute</code> is a network troubleshooting utility which shows number of hops taken to reach destination also determine packets traveling path.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> traceroute 4.2.2.2</span><br></pre></td></tr></table></figure>
+<h2><span id="p-4-netstat-command"> 4. <code>NETSTAT</code>  command</span><a href="#p-4-netstat-command" class="header-anchor">#</a></h2>
+<p><code>Netstat</code> (<strong>Network Statistic</strong>) command display connection info, routing table information etc. To displays routing table information use option as <strong>-r</strong>.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> netstat -r</span><br></pre></td></tr></table></figure>
+<h2><span id="p-5-dig-command"> 5. <code>dig</code> command</span><a href="#p-5-dig-command" class="header-anchor">#</a></h2>
+<p><code>dig</code> (<strong>domain information groper</strong>) query <strong>DNS</strong> related information like <strong>A Record</strong>, <strong>CNAME</strong>, <strong>MX Record</strong> etc. This command mainly use to troubleshoot <strong>DNS</strong> related query.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> dig domainName</span><br></pre></td></tr></table></figure>
+<h2><span id="p-6-nslookup-command"> 6. <code>nslookup</code> command</span><a href="#p-6-nslookup-command" class="header-anchor">#</a></h2>
+<p><code>nslookup</code> command also use to find out <strong>DNS</strong> related query.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> nsloopup domainName</span><br></pre></td></tr></table></figure>
+<h2><span id="p-7-route-command"> 7.  <code>route</code> command</span><a href="#p-7-route-command" class="header-anchor">#</a></h2>
+<p><code>route</code> command also shows and manipulate <strong>ip</strong> routing table.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> route</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> add route</span><br><span class="line"><span class="meta">&gt;</span> route add -net 10.10.10.0/24 gw 192.168.0.1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> delete route</span><br><span class="line"><span class="meta">&gt;</span> route del -net 10.10.10.0/24 gw 192.168.0.1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> add default GateWay</span><br><span class="line"><span class="meta">&gt;</span> route add default gw 192.168.0.1</span><br></pre></td></tr></table></figure>
+<h2><span id="p-8-host-command"> 8. <code>host</code> command</span><a href="#p-8-host-command" class="header-anchor">#</a></h2>
+<p><code>host</code> command to find name to <strong>IP</strong> or <strong>IP</strong> to name in <strong>IPv4</strong> or <strong>IPv6</strong> and also query <strong>DNS</strong> records.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> host domainName</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Using -t option we can find out DNS Resource Records like CNAME, NS, MX, SOA etc.</span><br><span class="line"><span class="meta">&gt;</span> host -t domainName</span><br></pre></td></tr></table></figure>
+<h2><span id="p-9-arp-command"> 9. <code>arp</code> command</span><a href="#p-9-arp-command" class="header-anchor">#</a></h2>
+<p><code>ARP</code> (<strong>Address Resolution Protocol</strong>) is useful to <strong>view</strong> / <strong>add</strong> the contents of the kernel’s <strong>ARP tables</strong>.</p>
+<p>查看局域网所有IP地址的设备,且获取相应的MAC</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> arp -a</span><br></pre></td></tr></table></figure>
+<h2><span id="p-10-hostname-command"> 10. <code>hostname</code>  command</span><a href="#p-10-hostname-command" class="header-anchor">#</a></h2>
+<p><code>hostname</code> is to identify in a network. Execut<code>hostname</code> command to see the hostname of your box. You can set hostname permanently in <strong>/etc/sysconfig/network</strong>. Need to reboot box once set a proper hostname.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> hostname</span><br></pre></td></tr></table></figure>
+<h2><span id="p-11-gui-tool-system-config-network"> 11. GUI tool <code>system-config-network</code></span><a href="#p-11-gui-tool-system-config-network" class="header-anchor">#</a></h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> system-config-network</span><br></pre></td></tr></table></figure>
+<h2><span id="p-12-ethtool-command"> 12. <code>ethtool</code> command</span><a href="#p-12-ethtool-command" class="header-anchor">#</a></h2>
+<p><code>ethtool</code> is a replacement of <code>mii-tool</code>. It is to view, setting speed and duplex of your <strong>Network Interface Card</strong> (<strong>NIC</strong>). You can set duplex permanently in <strong>/etc/sysconfig/network-scripts/ifcfg-eth0</strong> with <strong>ETHTOOL_OPTS</strong> variable.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> ethtool eth0</span><br></pre></td></tr></table></figure>
+<h2><span id="p-13-iwconfig-command"> 13. <code>iwconfig</code> command</span><a href="#p-13-iwconfig-command" class="header-anchor">#</a></h2>
+<p><code>iwconfig</code> command in <strong>Linux</strong> is use to configure a <strong>wireless network interface</strong>. You can see and set the basic <strong>Wi-Fi</strong> details like <strong>SSID</strong> channel and encryption. You can refer man page of <code>iwconfig</code> to know more.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> iwconfig [interface]</span><br><span class="line"><span class="meta">&gt;</span> man iwconfig</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.tecmint.com/linux-network-configuration-and-troubleshooting-commands/" target="_blank" rel="noopener">Reference</a></p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2019/08/26/Network-Configuration-and-Troubleshooting/" data-id="cl08u301e0006xgf32jdr2an6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/TimeFunny" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../../27/protobuf/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            protobuf
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../../21/Bloom-Filter/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Bloom Filter</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/13/GDB/gdb-source-file/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/GDB-Tool/">GDB Tool</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/13/GDB/gdb-source-file/" class="title">gdb-source-file</a></p>
+                            <p class="item-date"><time datetime="2022-02-13T15:35:29.000Z" itemprop="datePublished">2022-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/13/otn/Optical-Networking/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/13/otn/Optical-Networking/" class="title">Optical-Networking</a></p>
+                            <p class="item-date"><time datetime="2022-02-13T09:35:59.000Z" itemprop="datePublished">2022-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/08/otn/optical-transceivers/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/optical-transceivers.png)" alt="optical-transceivers" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/08/otn/optical-transceivers/" class="title">optical-transceivers</a></p>
+                            <p class="item-date"><time datetime="2022-02-08T15:21:09.000Z" itemprop="datePublished">2022-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/08/otn/SingleCarrier-Multicarrier/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/single-carrier-for-400g-otn.png)" alt="SingleCarrier-Multicarrier" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/08/otn/SingleCarrier-Multicarrier/" class="title">SingleCarrier-Multicarrier</a></p>
+                            <p class="item-date"><time datetime="2022-02-08T08:06:40.000Z" itemprop="datePublished">2022-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/06/otn/wavelength-bands/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/prx-electromagnetic-spectrum.jpg)" alt="wavelength-bands" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/06/otn/wavelength-bands/" class="title">wavelength-bands</a></p>
+                            <p class="item-date"><time datetime="2022-02-06T15:33:44.000Z" itemprop="datePublished">2022-02-06</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Cpp/">Cpp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 YANG Tao</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2019/08/26/Network-Configuration-and-Troubleshooting/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="../../../../js/main.js"></script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>git | Personal Blog Web</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="git">
+    
+    <meta name="description" content="basic  1. create a first repo 2. branch 3. reset  1. 分支操作 2. 文件操作   4. patch  1. create branch 3. apply patch   5. submodule 6. remote  1. clone 2. add/delete/rename remote 3. pull 4. push 5. Inspe">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git">
+<meta property="og:url" content="http://yoursite.com/2019/11/18/git/index.html">
+<meta property="og:site_name" content="Personal Blog Web">
+<meta property="og:description" content="basic  1. create a first repo 2. branch 3. reset  1. 分支操作 2. 文件操作   4. patch  1. create branch 3. apply patch   5. submodule 6. remote  1. clone 2. add/delete/rename remote 3. pull 4. push 5. Inspe">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-20T12:47:39.380Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git">
+<meta name="twitter:description" content="basic  1. create a first repo 2. branch 3. reset  1. 分支操作 2. 文件操作   4. patch  1. create branch 3. apply patch   5. submodule 6. remote  1. clone 2. add/delete/rename remote 3. pull 4. push 5. Inspe">
+    
+
+    
+        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="../../../../css/images/pexels-photo-693521.png">
+    
+
+    <link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="../../../../css/style.css">
+
+    <script src="../../../../libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../index.html">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/Cpp/">Cpp</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/GDB-Tool/">GDB Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/OTN/">OTN</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/Programming/">Programming</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-git" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        git
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="" class="article-date">
+            <time datetime="2019-11-18T04:02:53.000Z" itemprop="datePublished">2019-11-18</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="../../../../tags/git/">git</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <div class="toc">
+<!-- toc -->
+<ul>
+<li><a href="#basic">basic</a>
+<ul>
+<li><a href="#1-create-a-first-repo">1. create a first repo</a></li>
+<li><a href="#2-branch">2. branch</a></li>
+<li><a href="#3-reset">3. reset</a>
+<ul>
+<li><a href="#1-fen-zhi-cao-zuo">1. 分支操作</a></li>
+<li><a href="#2-wen-jian-cao-zuo">2. 文件操作</a></li>
+</ul>
+</li>
+<li><a href="#4-patch">4. patch</a>
+<ul>
+<li><a href="#1-create-branch">1. create branch</a></li>
+<li><a href="#3-apply-patch">3. apply patch</a></li>
+</ul>
+</li>
+<li><a href="#5-submodule">5. submodule</a></li>
+<li><a href="#6-remote">6. remote</a>
+<ul>
+<li><a href="#1-clone">1. clone</a></li>
+<li><a href="#2-add-delete-rename-remote">2. add/delete/rename remote</a></li>
+<li><a href="#3-pull">3. pull</a></li>
+<li><a href="#4-push">4. push</a></li>
+<li><a href="#5-inspecting-a-remote">5. Inspecting a Remote</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+<ol>
+<li><a href="https://git-scm.com/docs" target="_blank" rel="noopener">git docs</a></li>
+<li><a href="https://www.atlassian.com/git/tutorials/" target="_blank" rel="noopener">git tutorials</a></li>
+<li><a href="https://help.github.com/en/github" target="_blank" rel="noopener">github help</a></li>
+</ol>
+<h1><span id="p-basic"> basic</span><a href="#p-basic" class="header-anchor">#</a></h1>
+<h2><span id="p-1-create-a-first-repo"> 1. create a first repo</span><a href="#p-1-create-a-first-repo" class="header-anchor">#</a></h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> create a dir</span><br><span class="line"><span class="meta">&gt;</span> mkdir dir &amp;&amp; cd dir</span><br><span class="line"><span class="meta">#</span> initialize a repo</span><br><span class="line"><span class="meta">&gt;</span> git init</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> check repo status</span><br><span class="line"><span class="meta">&gt;</span> git status</span><br><span class="line"><span class="meta">#</span> add new files and changes to stage area</span><br><span class="line"><span class="meta">&gt;</span> git add -A ./   # 当前目录下所有的文件与子目录，包含删除文件</span><br><span class="line"><span class="meta">#</span> commit stage area data to local repo</span><br><span class="line"><span class="meta">&gt;</span> git commit -m "some change record"</span><br></pre></td></tr></table></figure>
+<h2><span id="p-2-branch"> 2. branch</span><a href="#p-2-branch" class="header-anchor">#</a></h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> check branch info</span><br><span class="line"><span class="meta">&gt;</span> git branch</span><br><span class="line"><span class="meta">#</span> check branch detailed information</span><br><span class="line"><span class="meta">&gt;</span> git branch -vv</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> create a repo branch</span><br><span class="line"><span class="meta">&gt;</span> git branch fixed</span><br><span class="line"><span class="meta">#</span> switch to branch</span><br><span class="line"><span class="meta">&gt;</span> git checkout fixed</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> one command to create and switch to a new branch</span><br><span class="line"><span class="meta">&gt;</span> git checkout -b fixed</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> merge fixed branch to master branch,and delete fixed branch</span><br><span class="line"><span class="meta">&gt;</span> git checkout master</span><br><span class="line"><span class="meta">&gt;</span> git merge fixed</span><br><span class="line"><span class="meta">&gt;</span> git branch -d fixed</span><br></pre></td></tr></table></figure>
+<h2><span id="p-3-reset"> 3. reset</span><a href="#p-3-reset" class="header-anchor">#</a></h2>
+<p><code>HEAD</code>表示当前版本(最新的提交),上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>,往上100个版本<code>HEAD~100</code></p>
+<h3><span id="p-1-fen-zhi-cao-zuo"> 1. 分支操作</span><a href="#p-1-fen-zhi-cao-zuo" class="header-anchor">#</a></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 文件会被还原</span><br><span class="line"><span class="meta">&gt;</span> git reset --hard HEAD^</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> git reset --hard &lt;commit id&gt;</span><br></pre></td></tr></table></figure>
+<h3><span id="p-2-wen-jian-cao-zuo"> 2. 文件操作</span><a href="#p-2-wen-jian-cao-zuo" class="header-anchor">#</a></h3>
+<p>不修改文件内容,改变文件提交状态，可以取消<code>git add</code>操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> git reset HEAD -- readme.txt&lt;filename&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> git reset -- filename</span><br></pre></td></tr></table></figure>
+<ul>
+<li>You can unstage files by using the <code>git reset &lt;target&gt;</code>command</li>
+<li>Files can be changed back to how they were at the last commit by using the command: <code>git checkout -- &lt;target&gt;</code></li>
+<li><code>git reset &lt;target&gt;</code> 取消<code>git add</code>的操作效果，<code>git checkout -- &lt;target&gt;</code> 把文件恢复到上一次commit的状态</li>
+</ul>
+<p>修改文件内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> git checkout -- readme.txt&lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<h2><span id="p-4-patch"> 4. patch</span><a href="#p-4-patch" class="header-anchor">#</a></h2>
+<h3><span id="p-1-create-branch"> 1. create branch</span><a href="#p-1-create-branch" class="header-anchor">#</a></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 创建新的branch</span><br><span class="line"><span class="meta">&gt;</span> git checkout -b  fix-bug</span><br><span class="line"><span class="meta">#</span> 修复,提交,测试后,check</span><br><span class="line"><span class="meta">&gt;</span> git log --pretty=oneline -3</span><br><span class="line"><span class="meta">#</span> Extract all commits which are in the current branch but not in the master branch</span><br><span class="line"><span class="meta">&gt;</span> git format-patch maste --stdout &gt; bug_fixed.patch</span><br></pre></td></tr></table></figure>
+<h3><span id="p-3-apply-patch"> 3. apply patch</span><a href="#p-3-apply-patch" class="header-anchor">#</a></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Apply patch, switch to master branch</span><br><span class="line"><span class="meta">&gt;</span> git checkout master</span><br><span class="line"><span class="meta">#</span># look at what changes are in the patch</span><br><span class="line"><span class="meta">&gt;</span> git apply --stat bug_fixed.patch</span><br><span class="line"><span class="meta">#</span>#  test the patch</span><br><span class="line"><span class="meta">&gt;</span> git apply --check bug_fixed.patch</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> apply patch</span><br><span class="line"><span class="meta">#</span># applies the patch but does not create a commit</span><br><span class="line"><span class="meta">&gt;</span> git apply bug_fixed.patch  # 适合于引用外部开源软件(submodule)，保留其开源版权</span><br><span class="line"><span class="meta">#</span># create commits from patches generated by git-format-patch</span><br><span class="line"><span class="meta">&gt;</span> git am --signoff &lt; bug_fixed.patch</span><br></pre></td></tr></table></figure>
+<h2><span id="p-5-submodule"> 5. submodule</span><a href="#p-5-submodule" class="header-anchor">#</a></h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> create a new submodule</span><br><span class="line"><span class="meta">&gt;</span> git submodule add https://github.com/chaconinc/DbConnector</span><br><span class="line"><span class="meta">#</span>#  specify a path</span><br><span class="line"><span class="meta">&gt;</span> git submodule add https://github.com/chaconinc/DbConnector path</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> update the submodules of a repo</span><br><span class="line"><span class="meta">&gt;</span> git submodule init</span><br><span class="line"><span class="meta">&gt;</span> git submodule update --init --recursive</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> clone repo, and update submodule</span><br><span class="line">git clone --recurse-submodules https://github.com/chaconinc/MainProject</span><br></pre></td></tr></table></figure>
+<h2><span id="p-6-remote"> 6. remote</span><a href="#p-6-remote" class="header-anchor">#</a></h2>
+<p><strong>url format</strong>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> public repo:</span><br><span class="line">https://github.com/username/repository.git</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> authorize, private repo</span><br><span class="line">https://username:password@github.com/username/repository.git</span><br></pre></td></tr></table></figure>
+<h3><span id="p-1-clone"> 1. clone</span><a href="#p-1-clone" class="header-anchor">#</a></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> git clone url</span><br></pre></td></tr></table></figure>
+<h3><span id="p-2-add-delete-rename-remote"> 2. add/delete/rename remote</span><a href="#p-2-add-delete-rename-remote" class="header-anchor">#</a></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> verigy remote</span><br><span class="line"><span class="meta">&gt;</span> git remote -v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> add a new remote </span><br><span class="line"><span class="meta">&gt;</span> git remote add remote_name url</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Remove remote</span><br><span class="line"><span class="meta">&gt;</span> git remote rm remote_name</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> rename remote</span><br><span class="line"><span class="meta">&gt;</span> git remote rename remote_name other</span><br></pre></td></tr></table></figure>
+<h3><span id="p-3-pull"> 3. pull</span><a href="#p-3-pull" class="header-anchor">#</a></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">&gt;</span> git pull origin master</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># </span><br><span class="line"><span class="meta">#</span> downloads the data to your local repository</span><br><span class="line"><span class="meta">&gt;</span> git fetch upstream</span><br><span class="line"><span class="meta">#</span> 选择一个branch进行合并</span><br><span class="line"><span class="meta">&gt;</span> git merge upstream/master</span><br></pre></td></tr></table></figure>
+<p><code>git clone</code>command automatically sets up your local master branch to track the remote master branch (or whatever the default branch is called) on the server you cloned from. Running <code>git pull</code> generally <strong>fetches</strong> data from the server you originally cloned from and automatically tries to <strong>merge</strong> it into the code you’re currently working on.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> it runs git rebase instead of git merge</span><br><span class="line"><span class="meta">&gt;</span> git pull --rebase origin(remote_name)  master(remote_branch)</span><br></pre></td></tr></table></figure>
+<h3><span id="p-4-push"> 4. push</span><a href="#p-4-push" class="header-anchor">#</a></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Pushing  Remotely</span><br><span class="line"><span class="meta">#</span> The -u tells Git to remember the parameters, so that next time we can simply run git push and Git will know what to do. Go ahead and push it!  </span><br><span class="line"><span class="meta">&gt;</span> git push -u origin(remote_name) master(local_branch):remote_branch</span><br></pre></td></tr></table></figure>
+<h3><span id="p-5-inspecting-a-remote"> 5. Inspecting a Remote</span><a href="#p-5-inspecting-a-remote" class="header-anchor">#</a></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> git remote show &lt;remote&gt;</span><br><span class="line"><span class="meta">&gt;</span> git remote show origin</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2019/11/18/git/" data-id="cl08u301o000gxgf3pyvt4ikm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/TimeFunny" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../../../../2020/06/27/entropy/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Entropy
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../../15/Linux/ssh-config/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">ssh port forward</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/13/GDB/gdb-source-file/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/GDB-Tool/">GDB Tool</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/13/GDB/gdb-source-file/" class="title">gdb-source-file</a></p>
+                            <p class="item-date"><time datetime="2022-02-13T15:35:29.000Z" itemprop="datePublished">2022-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/13/otn/Optical-Networking/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/13/otn/Optical-Networking/" class="title">Optical-Networking</a></p>
+                            <p class="item-date"><time datetime="2022-02-13T09:35:59.000Z" itemprop="datePublished">2022-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/08/otn/optical-transceivers/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/optical-transceivers.png)" alt="optical-transceivers" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/08/otn/optical-transceivers/" class="title">optical-transceivers</a></p>
+                            <p class="item-date"><time datetime="2022-02-08T15:21:09.000Z" itemprop="datePublished">2022-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/08/otn/SingleCarrier-Multicarrier/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/single-carrier-for-400g-otn.png)" alt="SingleCarrier-Multicarrier" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/08/otn/SingleCarrier-Multicarrier/" class="title">SingleCarrier-Multicarrier</a></p>
+                            <p class="item-date"><time datetime="2022-02-08T08:06:40.000Z" itemprop="datePublished">2022-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/06/otn/wavelength-bands/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/prx-electromagnetic-spectrum.jpg)" alt="wavelength-bands" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/06/otn/wavelength-bands/" class="title">wavelength-bands</a></p>
+                            <p class="item-date"><time datetime="2022-02-06T15:33:44.000Z" itemprop="datePublished">2022-02-06</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Cpp/">Cpp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 YANG Tao</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2019/11/18/git/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="../../../../js/main.js"></script>
+
+    </div>
+</body>
+</html>

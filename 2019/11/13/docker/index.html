@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>docker | Personal Blog Web</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="docker">
+    
+    <meta name="description" content="Docker  1. install  1. docker 2. nvidia-docker 3. Manage Docker as a non-root user 4. Configure Docker tp start on boot   2. basic command  CPU GPU   3. save a container as an image       Docker#">
+<meta name="keywords" content="docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker">
+<meta property="og:url" content="http://yoursite.com/2019/11/13/docker/index.html">
+<meta property="og:site_name" content="Personal Blog Web">
+<meta property="og:description" content="Docker  1. install  1. docker 2. nvidia-docker 3. Manage Docker as a non-root user 4. Configure Docker tp start on boot   2. basic command  CPU GPU   3. save a container as an image       Docker#">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-20T12:47:39.379Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="docker">
+<meta name="twitter:description" content="Docker  1. install  1. docker 2. nvidia-docker 3. Manage Docker as a non-root user 4. Configure Docker tp start on boot   2. basic command  CPU GPU   3. save a container as an image       Docker#">
+    
+
+    
+        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="../../../../css/images/pexels-photo-693521.png">
+    
+
+    <link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="../../../../css/style.css">
+
+    <script src="../../../../libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../index.html">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/Cpp/">Cpp</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/GDB-Tool/">GDB Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/OTN/">OTN</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../categories/Programming/">Programming</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-docker" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        docker
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="" class="article-date">
+            <time datetime="2019-11-13T04:06:14.000Z" itemprop="datePublished">2019-11-13</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="../../../../tags/docker/">docker</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <div class="toc">
+<!-- toc -->
+<ul>
+<li><a href="#docker">Docker</a>
+<ul>
+<li><a href="#1-install">1. install</a>
+<ul>
+<li><a href="#1-docker">1. docker</a></li>
+<li><a href="#2-nvidia-docker">2. nvidia-docker</a></li>
+<li><a href="#3-manage-docker-as-a-non-root-user">3. Manage Docker as a non-root user</a></li>
+<li><a href="#4-configure-docker-tp-start-on-boot">4. Configure Docker tp start on boot</a></li>
+</ul>
+</li>
+<li><a href="#2-basic-command">2. basic command</a>
+<ul>
+<li><a href="#cpu">CPU</a></li>
+<li><a href="#gpu">GPU</a></li>
+</ul>
+</li>
+<li><a href="#3-save-a-container-as-an-image">3. save a container as an image</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+<h1><span id="p-docker"> Docker</span><a href="#p-docker" class="header-anchor">#</a></h1>
+<h2><span id="p-1-install"> 1. install</span><a href="#p-1-install" class="header-anchor">#</a></h2>
+<h3><span id="p-1-docker"> 1. docker</span><a href="#p-1-docker" class="header-anchor">#</a></h3>
+<p><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">docker</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> SET UP THE REPOSITORY</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get update &amp;&amp; sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg-agent \</span><br><span class="line">    software-properties-common</span><br><span class="line">    </span><br><span class="line"><span class="meta">#</span># Add Docker’s official GPG key</span><br><span class="line"><span class="meta">&gt;</span> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-key fingerprint 0EBFCD88</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># set up the stable repository(lsb_release -cs sub-command below returns the name of your Ubuntu distribution)</span><br><span class="line"><span class="meta">&gt;</span> sudo add-apt-repository \</span><br><span class="line">   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line"><span class="meta">   $</span>(lsb_release -cs) \</span><br><span class="line">   stable"</span><br><span class="line">   </span><br><span class="line"><span class="meta">#</span> docker community version</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get update &amp;&amp; sudo apt-get install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+<h3><span id="p-2-nvidia-docker"> 2. nvidia-docker</span><a href="#p-2-nvidia-docker" class="header-anchor">#</a></h3>
+<p><a href="https://github.com/NVIDIA/nvidia-docker" target="_blank" rel="noopener">github</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> distribution=$(. /etc/os-release;echo $ID$VERSION_ID)</span><br><span class="line"><span class="meta">&gt;</span> curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -</span><br><span class="line"><span class="meta">&gt;</span> curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get update &amp;&amp; sudo apt-get install -y nvidia-container-toolkit</span><br><span class="line"><span class="meta">#</span> 开启dockers服务</span><br><span class="line"><span class="meta">&gt;</span> sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+<h3><span id="p-3-manage-docker-as-a-non-root-user"> 3. Manage Docker as a non-root user</span><a href="#p-3-manage-docker-as-a-non-root-user" class="header-anchor">#</a></h3>
+<p><a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user" target="_blank" rel="noopener">Manage Docker as a non-root user</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Create the docker group.</span><br><span class="line"><span class="meta">&gt;</span> sudo groupadd docker</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Add your user to the docker group.</span><br><span class="line"><span class="meta">&gt;</span> sudo usermod -aG docker $USER</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Log out and log back in so that your group membership is re-evaluated.</span><br><span class="line"><span class="meta">#</span> If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.</span><br><span class="line"><span class="meta">#</span> On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 开启dockers服务</span><br><span class="line"><span class="meta">&gt;</span> sudo systemctl restart docker</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Verify that you can run docker commands without sudo.</span><br><span class="line"><span class="meta">&gt;</span> docker run hello-world</span><br></pre></td></tr></table></figure>
+<h3><span id="p-4-configure-docker-tp-start-on-boot"> 4. Configure Docker tp start on boot</span><a href="#p-4-configure-docker-tp-start-on-boot" class="header-anchor">#</a></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line"><span class="meta">&gt;</span> sudo systemctl enable docker</span><br><span class="line"><span class="meta">#</span> 关闭</span><br><span class="line"><span class="meta">&gt;</span> sudo systemctl disable docker</span><br></pre></td></tr></table></figure>
+<h4><span id="p-5-uninstall-docker-ce"> 5. Uninstall Docker CE</span><a href="#p-5-uninstall-docker-ce" class="header-anchor">#</a></h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Uninstall the Docker CE package:</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get purge docker-ce</span><br><span class="line"><span class="meta">#</span> Images, containers, volumes, or customized configuration files on your host are not automatically removed. To delete all images, containers, and volumes:</span><br><span class="line"><span class="meta">&gt;</span> sudo rm -rf /var/lib/docker</span><br></pre></td></tr></table></figure>
+<h2><span id="p-2-basic-command"> 2. basic command</span><a href="#p-2-basic-command" class="header-anchor">#</a></h2>
+<h3><span id="p-cpu"> CPU</span><a href="#p-cpu" class="header-anchor">#</a></h3>
+<p><a href="https://stackoverflow.com/questions/30209776/docker-container-will-automatically-stop-after-docker-run-d" target="_blank" rel="noopener">container never stop automatically</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> create a container</span><br><span class="line"><span class="meta">#</span> --name: specify a name to container</span><br><span class="line"><span class="meta">#</span> format: docker run options image_id command</span><br><span class="line"><span class="meta">&gt;</span> docker run -dt --name test image</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Attaching a Shell to a Container</span><br><span class="line"><span class="meta">&gt;</span>  docker container  exec -it test /bin/bash</span><br></pre></td></tr></table></figure>
+<h3><span id="p-gpu"> GPU</span><a href="#p-gpu" class="header-anchor">#</a></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> use gpu</span><br><span class="line"><span class="meta">#</span>### Test nvidia-smi with the latest official CUDA image</span><br><span class="line"><span class="meta">$</span> docker run --gpus all nvidia/cuda:9.0-base nvidia-smi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Start a GPU enabled container on two GPUs</span><br><span class="line"><span class="meta">$</span> docker run --gpus 2 nvidia/cuda:9.0-base nvidia-smi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Starting a GPU enabled container on specific GPUs</span><br><span class="line"><span class="meta">$</span> docker run --gpus '"device=1,2"' nvidia/cuda:9.0-base nvidia-smi</span><br><span class="line"><span class="meta">$</span> docker run --gpus '"device=UUID-ABCDEF,1"' nvidia/cuda:9.0-base nvidia-smi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Specifying a capability (graphics, compute, ...) for my container</span><br><span class="line"><span class="meta">#</span> Note this is rarely if ever used this way</span><br><span class="line"><span class="meta">$</span> docker run --gpus all,capabilities=utility nvidia/cuda:9.0-base nvidia-smi</span><br></pre></td></tr></table></figure>
+<h2><span id="p-3-save-a-container-as-an-image"> 3. save a container as an image</span><a href="#p-3-save-a-container-as-an-image" class="header-anchor">#</a></h2>
+<p>The <code>commit\export</code> operation will not include any data contained in volumes mounted inside the container.</p>
+<p><strong>在没有访问外网权限的内网区域内, 可方便在不同host上面进行拷贝移植</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Create a tar file from a container’s changes</span><br><span class="line"><span class="meta">&gt;</span> docker export container &gt;  bak.tar</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> reload, create a new image</span><br><span class="line"><span class="meta">&gt;</span> cat bak.tar | docker import - [REPOSITORY[:TAG]]</span><br><span class="line"><span class="meta">#</span># </span><br><span class="line"><span class="meta">&gt;</span> docker import bak.tar [REPOSITORY[:TAG]]</span><br></pre></td></tr></table></figure>
+<p><strong>创建的 image直接保存 <code>/var/lib/docker</code>目录, 方便创建具有相同运行时的container环境</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Create a new image from a container’s changes</span><br><span class="line"><span class="meta">&gt;</span> docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2019/11/13/docker/" data-id="cl08u301i000axgf3t05vrhsi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/TimeFunny" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="../../../../index.html" target="_blank">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../../15/Linux/ssh-config/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            ssh port forward
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../../../08/30/CMD/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">CMD</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/13/GDB/gdb-source-file/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/GDB-Tool/">GDB Tool</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/13/GDB/gdb-source-file/" class="title">gdb-source-file</a></p>
+                            <p class="item-date"><time datetime="2022-02-13T15:35:29.000Z" itemprop="datePublished">2022-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/13/otn/Optical-Networking/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/13/otn/Optical-Networking/" class="title">Optical-Networking</a></p>
+                            <p class="item-date"><time datetime="2022-02-13T09:35:59.000Z" itemprop="datePublished">2022-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/08/otn/optical-transceivers/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/optical-transceivers.png)" alt="optical-transceivers" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/08/otn/optical-transceivers/" class="title">optical-transceivers</a></p>
+                            <p class="item-date"><time datetime="2022-02-08T15:21:09.000Z" itemprop="datePublished">2022-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/08/otn/SingleCarrier-Multicarrier/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/single-carrier-for-400g-otn.png)" alt="SingleCarrier-Multicarrier" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/08/otn/SingleCarrier-Multicarrier/" class="title">SingleCarrier-Multicarrier</a></p>
+                            <p class="item-date"><time datetime="2022-02-08T08:06:40.000Z" itemprop="datePublished">2022-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2022/02/06/otn/wavelength-bands/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/prx-electromagnetic-spectrum.jpg)" alt="wavelength-bands" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../2022/02/06/otn/wavelength-bands/" class="title">wavelength-bands</a></p>
+                            <p class="item-date"><time datetime="2022-02-06T15:33:44.000Z" itemprop="datePublished">2022-02-06</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Cpp/">Cpp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 YANG Tao</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2019/11/13/docker/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="../../../../js/main.js"></script>
+
+    </div>
+</body>
+</html>

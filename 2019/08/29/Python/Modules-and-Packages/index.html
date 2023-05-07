@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>Modules and Packages | Personal Blog Web</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="python,modules,packages">
+    
+    <meta name="description" content="1. Modules  1. The Module Search Path   2. Packages  1. Importing * From a Package 2. Intra-package References 3. Packages in Multiple Directories       1. Modules# ​    A module is a file containi">
+<meta name="keywords" content="python,modules,packages">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Modules and Packages">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/Python/Modules-and-Packages/index.html">
+<meta property="og:site_name" content="Personal Blog Web">
+<meta property="og:description" content="1. Modules  1. The Module Search Path   2. Packages  1. Importing * From a Package 2. Intra-package References 3. Packages in Multiple Directories       1. Modules# ​    A module is a file containi">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-12T13:58:12.640Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Modules and Packages">
+<meta name="twitter:description" content="1. Modules  1. The Module Search Path   2. Packages  1. Importing * From a Package 2. Intra-package References 3. Packages in Multiple Directories       1. Modules# ​    A module is a file containi">
+    
+
+    
+        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="../../../../../css/images/pexels-photo-693521.png">
+    
+
+    <link rel="stylesheet" href="../../../../../libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../../libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="../../../../../libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="../../../../../css/style.css">
+
+    <script src="../../../../../libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="../../../../../libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="../../../../../libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../../index.html">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../../categories/Cpp/">Cpp</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../../categories/GDB-Tool/">GDB Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../../categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../../categories/OTN/">OTN</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../../categories/Programming/">Programming</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../../about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../../js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Python/Modules-and-Packages" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Modules and Packages
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="" class="article-date">
+            <time datetime="2019-08-29T02:33:53.000Z" itemprop="datePublished">2019-08-29</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="../../../../../tags/modules/">modules</a>, <a class="tag-link" href="../../../../../tags/packages/">packages</a>, <a class="tag-link" href="../../../../../tags/python/">python</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <div class="toc">
+<!-- toc -->
+<ul>
+<li><a href="#1-modules">1. Modules</a>
+<ul>
+<li><a href="#1-the-module-search-path">1. The Module Search Path</a></li>
+</ul>
+</li>
+<li><a href="#2-packages">2. Packages</a>
+<ul>
+<li><a href="#1-importing-from-a-package">1. Importing * From a Package</a></li>
+<li><a href="#2-intra-package-references">2. Intra-package References</a></li>
+<li><a href="#3-packages-in-multiple-directories">3. Packages in Multiple Directories</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+<h1><span id="p-1-modules"> 1. Modules</span><a href="#p-1-modules" class="header-anchor">#</a></h1>
+<p>​    A module is <strong>a file</strong> containing Python definitions and statements. The file name is the module name with the suffix <code>.py</code> appended. Within a module, the module’s name (as a string) is available as the value of the global variable<code>__name__</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Fibonacci numbers module fibo.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>    <span class="comment"># write Fibonacci series up to n</span></span><br><span class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> b &lt; n:</span><br><span class="line">        print(b, end=<span class="string">' '</span>)</span><br><span class="line">        a, b = b, a+b</span><br><span class="line">    print()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib2</span><span class="params">(n)</span>:</span>   <span class="comment"># return Fibonacci series up to n</span></span><br><span class="line">    result = []</span><br><span class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> b &lt; n:</span><br><span class="line">        result.append(b)</span><br><span class="line">        a, b = b, a+b</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">&gt; <span class="keyword">import</span> fibo</span><br><span class="line">&gt; fibo.fib(<span class="number">1000</span>)</span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">13</span> <span class="number">21</span> <span class="number">34</span> <span class="number">55</span> <span class="number">89</span> <span class="number">144</span> <span class="number">233</span> <span class="number">377</span> <span class="number">610</span> <span class="number">987</span></span><br><span class="line">&gt; fibo.fib2(<span class="number">100</span>)</span><br><span class="line">[<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">21</span>, <span class="number">34</span>, <span class="number">55</span>, <span class="number">89</span>]</span><br><span class="line">&gt; fibo.__name__</span><br><span class="line"><span class="string">'fibo'</span></span><br></pre></td></tr></table></figure>
+<h2><span id="p-1-the-module-search-path"> 1. The Module Search Path</span><a href="#p-1-the-module-search-path" class="header-anchor">#</a></h2>
+<p>​     When a module named <code>spam</code> is imported, the interpreter first searches for a built-in module with that name. If not found, it then searches for a file named <code>spam.py</code> in a list of directories given by the variable <a href="https://docs.python.org/3.6/library/sys.html#sys.path" target="_blank" rel="noopener"><code>sys.path</code></a>. <a href="https://docs.python.org/3.6/library/sys.html#sys.path" target="_blank" rel="noopener"><code>sys.path</code></a>is initialized from these locations:</p>
+<ul>
+<li>The directory containing the input script (or the current directory when no file is specified).</li>
+<li><a href="https://docs.python.org/3.6/using/cmdline.html#envvar-PYTHONPATH" target="_blank" rel="noopener"><code>PYTHONPATH</code></a> (a list of directory names, with the same syntax as the shell variable <code>PATH</code>).</li>
+<li>The installation-dependent default.</li>
+</ul>
+<h4><span id="p-important"> IMPORTANT</span><a href="#p-important" class="header-anchor">#</a></h4>
+<p>​    After initialization, Python programs can modify <a href="https://docs.python.org/3.6/library/sys.html#sys.path" target="_blank" rel="noopener"><code>sys.path</code></a>. The directory containing the script being run is placed at the beginning of the search path, ahead of the standard library path. This means that scripts in that directory will be loaded instead of modules of the same name in the library directory.(先搜索当前脚本所在的目录, 必须避免与官方库有<strong>命名冲突</strong>)</p>
+<h1><span id="p-2-packages"> 2. Packages</span><a href="#p-2-packages" class="header-anchor">#</a></h1>
+<p>​      Packages are a way of structuring Python’s module namespace by using “dotted module names”.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">sound/                          Top-level package</span><br><span class="line">      __init__.py               Initialize the sound package</span><br><span class="line">      formats/                  Subpackage for file format conversions</span><br><span class="line">              __init__.py</span><br><span class="line">              wavread.py</span><br><span class="line">              wavwrite.py</span><br><span class="line">              aiffread.py</span><br><span class="line">              aiffwrite.py</span><br><span class="line">              auread.py</span><br><span class="line">              auwrite.py</span><br><span class="line">              ...</span><br><span class="line">      effects/                  Subpackage for sound effects</span><br><span class="line">              __init__.py</span><br><span class="line">              echo.py</span><br><span class="line">              surround.py</span><br><span class="line">              reverse.py</span><br><span class="line">              ...</span><br><span class="line">      filters/                  Subpackage for filters</span><br><span class="line">              __init__.py</span><br><span class="line">              equalizer.py</span><br><span class="line">              vocoder.py</span><br><span class="line">              karaoke.py</span><br></pre></td></tr></table></figure>
+<p>​    When importing the package, Python searches through the directories on <code>sys.path</code> looking for the package subdirectory.</p>
+<p>​    The <code>__init__.py</code> files are required to make Python treat the directories as containing packages; this is done to prevent directories with a common name, such as <code>string</code>, from unintentionally hiding valid modules that occur later on the module search path. In the simplest case, <code>__init__.py</code> can just be an empty file, but it can also execute initialization code for the package or set the <code>__all__</code> variable.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sound.effects.echo</span><br><span class="line">sound.effects.echo.echofilter(input, output, delay=<span class="number">0.7</span>, atten=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sound.effects <span class="keyword">import</span> echo</span><br><span class="line">echo.echofilter(input, output, delay=<span class="number">0.7</span>, atten=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sound.effects.echo <span class="keyword">import</span> echofilter</span><br><span class="line">echofilter(input, output, delay=<span class="number">0.7</span>, atten=<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>​    Note that when using <code>from package import item</code>, the <strong>item</strong> can be either <strong>a submodule (or subpackage) of the package</strong>, or <strong>some other name defined in the package</strong>, like a function, class or variable. The <code>import</code> statement first tests whether the item is defined in the package; if not, it assumes it is a module and attempts to load it. If it fails to find it, an <a href="https://docs.python.org/3.6/library/exceptions.html#ImportError" target="_blank" rel="noopener"><code>ImportError</code></a> exception is raised.</p>
+<p>​    Contrarily, when using syntax like <code>import item.subitem.subsubitem</code>, each item except for the last must be a package; the last item can be a module or a package but can’t be a class or function or variable defined in the previous item.</p>
+<h3><span id="p-1-importing-from-a-package"> 1. Importing * From a Package</span><a href="#p-1-importing-from-a-package" class="header-anchor">#</a></h3>
+<p>​    Now what happens when the user writes <code>from sound.effects import *</code>? Ideally, one would hope that this somehow goes out to the filesystem, finds which submodules are present in the package, and imports them all. This could take a long time and importing sub-modules might have unwanted side-effects that should only happen when the sub-module is explicitly imported.</p>
+<p>​    The only solution is for the package author to provide an explicit index of the package. The <a href="https://docs.python.org/3.6/reference/simple_stmts.html#import" target="_blank" rel="noopener"><code>import</code></a> statement uses the following convention: if a package’s <code>__init__.py</code> code defines a list named <code>__all__</code>, it is taken to be the list of module names that should be imported when <code>from package import *</code> is encountered. It is up to the package author to keep this list up-to-date when a new version of the package is released. Package authors may also decide not to support it, if they don’t see a use for importing * from their package. For example, the file <code>sound/effects/__init__.py</code> could contain the following code:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__all__ = [&quot;echo&quot;, &quot;surround&quot;, &quot;reverse&quot;]</span><br></pre></td></tr></table></figure>
+<p>​    This would mean that <code>from sound.effects import *</code> would import the three named submodules of the <code>sound</code>package.</p>
+<p>​    If <code>__all__</code> is not defined, the statement <code>from sound.effects import *</code> does <em>not</em> import all submodules from the package <code>sound.effects</code> into the current namespace; it only ensures that the package <code>sound.effects</code> has been imported (possibly running any initialization code in <code>__init__.py</code>) and then imports whatever names are defined in the package. This includes any names defined (and submodules explicitly loaded) by <code>__init__.py</code>. It also includes any submodules of the package that were explicitly loaded by previous <a href="https://docs.python.org/3.6/reference/simple_stmts.html#import" target="_blank" rel="noopener"><code>import</code></a> statements. Consider this code:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import sound.effects.echo</span><br><span class="line">import sound.effects.surround</span><br><span class="line">from sound.effects import *</span><br></pre></td></tr></table></figure>
+<p>​    In this example, the <code>echo</code> and <code>surround</code> modules are imported in the current namespace because they are defined in the <code>sound.effects</code> package when the <code>from...import</code> statement is executed. (This also works when<code>__all__</code> is defined.)</p>
+<p>​    Although certain modules are designed to export only names that follow certain patterns when you use <code>import*</code>, it is still considered bad practice in production code.</p>
+<p>​    Remember, there is nothing wrong with using <code>from Package import specific_submodule</code>! In fact, this is the recommended notation unless the importing module needs to use submodules with the same name from different packages.</p>
+<h3><span id="p-2-intra-package-references"> 2. Intra-package References</span><a href="#p-2-intra-package-references" class="header-anchor">#</a></h3>
+<p>​    When packages are structured into subpackages (as with the <code>sound</code> package in the example), you can use absolute imports to refer to submodules of siblings packages. For example, if the module <code>sound.filters.vocoder</code> needs to use the <code>echo</code> module in the <code>sound.effects</code> package, it can use <code>fromsound.effects import echo</code>.</p>
+<p>​    You can also write relative imports, with the <code>from module import name</code> form of import statement. These imports use leading dots to indicate the current and parent packages involved in the relative import. From the <code>surround</code>module for example, you might use:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> echo</span><br><span class="line"><span class="keyword">from</span> .. <span class="keyword">import</span> formats</span><br><span class="line"><span class="keyword">from</span> ..filters <span class="keyword">import</span> equalizer</span><br></pre></td></tr></table></figure>
+<p>​    Note that relative imports are based on the name of the current module. Since the name of the main module is always <code>&quot;__main__&quot;</code>, modules intended for use as the main module of a Python application must always use absolute imports.</p>
+<h3><span id="p-3-packages-in-multiple-directories"> 3. Packages in Multiple Directories</span><a href="#p-3-packages-in-multiple-directories" class="header-anchor">#</a></h3>
+<p>​    Packages support one more special attribute, <a href="https://docs.python.org/3.6/reference/import.html#__path__" target="_blank" rel="noopener"><code>__path__</code></a>. This is initialized to be a list containing the name of the directory holding the package’s <code>__init__.py</code> before the code in that file is executed. This variable can be modified; doing so affects future searches for modules and subpackages contained in the package.</p>
+<p>While this feature is not often needed, it can be used to extend the set of modules found in a package.</p>
+<p><a href="https://docs.python.org/3.6/tutorial/modules.html" target="_blank" rel="noopener">Reference</a></p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2019/08/29/Python/Modules-and-Packages/" data-id="cl08u307x002txgf38ger0qtb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/TimeFunny" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../../../30/CMD/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            CMD
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../../../27/protobuf/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">protobuf</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../../2022/02/13/GDB/gdb-source-file/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/GDB-Tool/">GDB Tool</a></p>
+                            <p class="item-title"><a href="../../../../../2022/02/13/GDB/gdb-source-file/" class="title">gdb-source-file</a></p>
+                            <p class="item-date"><time datetime="2022-02-13T15:35:29.000Z" itemprop="datePublished">2022-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../../2022/02/13/otn/Optical-Networking/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../../2022/02/13/otn/Optical-Networking/" class="title">Optical-Networking</a></p>
+                            <p class="item-date"><time datetime="2022-02-13T09:35:59.000Z" itemprop="datePublished">2022-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../../2022/02/08/otn/optical-transceivers/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/optical-transceivers.png)" alt="optical-transceivers" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../../2022/02/08/otn/optical-transceivers/" class="title">optical-transceivers</a></p>
+                            <p class="item-date"><time datetime="2022-02-08T15:21:09.000Z" itemprop="datePublished">2022-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../../2022/02/08/otn/SingleCarrier-Multicarrier/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/single-carrier-for-400g-otn.png)" alt="SingleCarrier-Multicarrier" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../../2022/02/08/otn/SingleCarrier-Multicarrier/" class="title">SingleCarrier-Multicarrier</a></p>
+                            <p class="item-date"><time datetime="2022-02-08T08:06:40.000Z" itemprop="datePublished">2022-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../../2022/02/06/otn/wavelength-bands/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/prx-electromagnetic-spectrum.jpg)" alt="wavelength-bands" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../../2022/02/06/otn/wavelength-bands/" class="title">wavelength-bands</a></p>
+                            <p class="item-date"><time datetime="2022-02-06T15:33:44.000Z" itemprop="datePublished">2022-02-06</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Cpp/">Cpp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 YANG Tao</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2019/08/29/Python/Modules-and-Packages/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="../../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="../../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="../../../../../js/main.js"></script>
+
+    </div>
+</body>
+</html>

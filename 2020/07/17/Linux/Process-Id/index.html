@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>Process Id | Personal Blog Web</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Linux,check process id">
+    
+    <meta name="description" content="1. ps# 12345678910111213141516# all process&amp;gt; ps -efUID        PID  PPID  C STIME TTY          TIME CMD&amp;gt; ps -auxUSER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND## PID: co">
+<meta name="keywords" content="Linux,check process id">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Process Id">
+<meta property="og:url" content="http://yoursite.com/2020/07/17/Linux/Process-Id/index.html">
+<meta property="og:site_name" content="Personal Blog Web">
+<meta property="og:description" content="1. ps# 12345678910111213141516# all process&amp;gt; ps -efUID        PID  PPID  C STIME TTY          TIME CMD&amp;gt; ps -auxUSER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND## PID: co">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-03-28T09:22:32.346Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Process Id">
+<meta name="twitter:description" content="1. ps# 12345678910111213141516# all process&amp;gt; ps -efUID        PID  PPID  C STIME TTY          TIME CMD&amp;gt; ps -auxUSER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND## PID: co">
+    
+
+    
+        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="../../../../../css/images/pexels-photo-693521.png">
+    
+
+    <link rel="stylesheet" href="../../../../../libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../../libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="../../../../../libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="../../../../../css/style.css">
+
+    <script src="../../../../../libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="../../../../../libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="../../../../../libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../../index.html">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../../categories/Cpp/">Cpp</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../../categories/GDB-Tool/">GDB Tool</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../../categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../../categories/OTN/">OTN</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../../../categories/Programming/">Programming</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../../about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../../js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../../../categories/Linux/">Linux</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Linux/Process-Id" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Process Id
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="" class="article-date">
+            <time datetime="2020-07-16T16:15:30.000Z" itemprop="datePublished">2020-07-17</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="../../../../../tags/Linux/">Linux</a>, <a class="tag-link" href="../../../../../tags/check-process-id/">check process id</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2><span id="p-1-ps"> 1. ps</span><a href="#p-1-ps" class="header-anchor">#</a></h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> all process</span><br><span class="line"><span class="meta">&gt;</span> ps -ef</span><br><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> ps -aux</span><br><span class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># PID: column 9-15</span><br><span class="line"><span class="meta">#</span># get speacial process PID</span><br><span class="line"><span class="meta">&gt;</span> ps -ef | grep CMD-NAME | grep -v grep | cut -c 9-15</span><br><span class="line"><span class="meta">&gt;</span> ps -aux | grep CMD-NAME | grep -v grep | cut -c 9-15</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span># ignore grep --color=auto,  </span><br><span class="line"><span class="meta">#</span># If the pattern had been written without the square brackets, it would have matched not only the ps output line for cron, but also the ps output line for grep.</span><br><span class="line"><span class="meta">#</span># https://www.gnu.org/software/grep/manual/grep.html</span><br><span class="line"><span class="meta">&gt;</span> ps -ef | grep  [i]nit</span><br></pre></td></tr></table></figure>
+<h2><span id="p-2-pidof"> 2. </span><a href="#p-2-pidof" class="header-anchor">#</a></h2>
+<p>find the process ID of a running program</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> &gt; ps -ef | grep /i</span><br><span class="line">root         1     0  0 Jul16 ?        00:00:00 /init</span><br><span class="line">root         6     1  0 Jul16 ?        00:00:00 /init</span><br><span class="line">root         7     6  0 Jul16 ?        00:00:01 /init</span><br><span class="line">root      2496     1  0 00:17 ?        00:00:00 /init</span><br><span class="line">root      2497  2496  0 00:17 ?        00:00:00 /init</span><br><span class="line">yang      2813  2498  0 00:51 pts/1    00:00:00 grep --color=auto /i</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> pidof /init</span><br><span class="line">2497 2496 7 6 1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> select one</span><br><span class="line"><span class="meta">&gt;</span> pidof /init | awk '&#123;print $1&#125;'</span><br><span class="line">2497</span><br></pre></td></tr></table></figure>
+<h2><span id="p-3-pgrep-pkill"> 3. /</span><a href="#p-3-pgrep-pkill" class="header-anchor">#</a></h2>
+<p>It searches for all the named <a href="https://en.wikipedia.org/wiki/Process_(computing)" target="_blank" rel="noopener">processes</a> that can be specified as extended <a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank" rel="noopener">regular expression</a> patterns, and—by default—returns their <a href="https://en.wikipedia.org/wiki/Process_identifier" target="_blank" rel="noopener">process ID</a>.</p>
+<p><strong>The running <code>pgrep</code> or <code>pkill</code> process will never report itself as a match.</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pgrep -u root sshd</span><br><span class="line"></span><br><span class="line">   will only list the processes called sshd AND owned by root.  On the other hand,</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> pgrep -u root,daemon</span><br><span class="line"></span><br><span class="line">   will list the processes owned by root OR daemon.</span><br><span class="line">   </span><br><span class="line"><span class="meta">#</span> a little bug, pattern don't  using '/' at the beginning. It auto append '*' at the begin/end of pattern string</span><br><span class="line"><span class="meta">$</span> pgrep pattern</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> ps -ef | grep init</span><br><span class="line">root         1     0  0 Jul16 ?        00:00:00 /init</span><br><span class="line">root         6     1  0 Jul16 ?        00:00:00 /init</span><br><span class="line">root         7     6  0 Jul16 ?        00:00:01 /init</span><br><span class="line">root      2496     1  0 00:17 ?        00:00:00 /init</span><br><span class="line">root      2497  2496  0 00:17 ?        00:00:00 /init</span><br><span class="line">yang      2813  2498  0 00:51 pts/1    00:00:00 grep --color=auto /i</span><br><span class="line"><span class="meta">&gt;</span> pgrep  init</span><br><span class="line">1</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">2496</span><br><span class="line">2497</span><br></pre></td></tr></table></figure>
+<h3><span id="p-please-use-f-option"> please use -f option</span><a href="#p-please-use-f-option" class="header-anchor">#</a></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> -f, --full                use full process name to match</span><br><span class="line"><span class="meta">&gt;</span> pgrep -f process-name</span><br></pre></td></tr></table></figure>
+<h2><span id="p-the-difference-between-pidof-and-pgrep"> </span><a href="#p-the-difference-between-pidof-and-pgrep" class="header-anchor">#</a></h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> he equivalence is actually:</span><br><span class="line"><span class="meta">$</span> pidof 'program'</span><br><span class="line"><span class="meta">$</span> pgrep '^program$'</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2020/07/17/Linux/Process-Id/" data-id="cl08u3078001rxgf39xz1q6fp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/TimeFunny" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="../../../../../index.html" target="_blank">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../../../20/GDB/gdb/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            gdb
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../../../11/GDB/Debug in Linux/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Debug in Linux</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../../2022/02/13/GDB/gdb-source-file/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/GDB-Tool/">GDB Tool</a></p>
+                            <p class="item-title"><a href="../../../../../2022/02/13/GDB/gdb-source-file/" class="title">gdb-source-file</a></p>
+                            <p class="item-date"><time datetime="2022-02-13T15:35:29.000Z" itemprop="datePublished">2022-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../../2022/02/13/otn/Optical-Networking/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../../2022/02/13/otn/Optical-Networking/" class="title">Optical-Networking</a></p>
+                            <p class="item-date"><time datetime="2022-02-13T09:35:59.000Z" itemprop="datePublished">2022-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../../2022/02/08/otn/optical-transceivers/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/optical-transceivers.png)" alt="optical-transceivers" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../../2022/02/08/otn/optical-transceivers/" class="title">optical-transceivers</a></p>
+                            <p class="item-date"><time datetime="2022-02-08T15:21:09.000Z" itemprop="datePublished">2022-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../../2022/02/08/otn/SingleCarrier-Multicarrier/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/single-carrier-for-400g-otn.png)" alt="SingleCarrier-Multicarrier" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../../2022/02/08/otn/SingleCarrier-Multicarrier/" class="title">SingleCarrier-Multicarrier</a></p>
+                            <p class="item-date"><time datetime="2022-02-08T08:06:40.000Z" itemprop="datePublished">2022-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../../2022/02/06/otn/wavelength-bands/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/prx-electromagnetic-spectrum.jpg)" alt="wavelength-bands" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/OTN/">OTN</a></p>
+                            <p class="item-title"><a href="../../../../../2022/02/06/otn/wavelength-bands/" class="title">wavelength-bands</a></p>
+                            <p class="item-date"><time datetime="2022-02-06T15:33:44.000Z" itemprop="datePublished">2022-02-06</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Cpp/">Cpp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 YANG Tao</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2020/07/17/Linux/Process-Id/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="../../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="../../../../../libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="../../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="../../../../../js/main.js"></script>
+
+    </div>
+</body>
+</html>
