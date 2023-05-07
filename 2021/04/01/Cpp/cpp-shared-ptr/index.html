@@ -9,15 +9,15 @@
     
         <meta name="keywords" content="shared_ptr memory layout" />
     
-    <meta name="description" content="Struct12345678910111213141516171819class __shared_ptr &amp;#123;    element_type*	   _M_ptr;         &#x2F;&#x2F; Contained pointer.    __shared_count&lt;_Lp&gt;  _M_refcount;    &#x2F;&#x2F; Reference counter.&amp;#125;class">
+    <meta name="description" content="Struct12345678910111213141516171819202122232425class __shared_ptr &amp;#123;    element_type*	   _M_ptr;         &#x2F;&#x2F; Contained pointer.    __shared_count&lt;_Lp&gt;  _M_refcount;    &#x2F;&#x2F; Reference counter.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shared_ptr memory layout">
 <meta property="og:url" content="http://yoursite.com/2021/04/01/Cpp/cpp-shared-ptr/index.html">
 <meta property="og:site_name" content="Personal Blog Web">
-<meta property="og:description" content="Struct12345678910111213141516171819class __shared_ptr &amp;#123;    element_type*	   _M_ptr;         &#x2F;&#x2F; Contained pointer.    __shared_count&lt;_Lp&gt;  _M_refcount;    &#x2F;&#x2F; Reference counter.&amp;#125;class">
+<meta property="og:description" content="Struct12345678910111213141516171819202122232425class __shared_ptr &amp;#123;    element_type*	   _M_ptr;         &#x2F;&#x2F; Contained pointer.    __shared_count&lt;_Lp&gt;  _M_refcount;    &#x2F;&#x2F; Reference counter.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-01T11:28:55.000Z">
-<meta property="article:modified_time" content="2021-04-05T14:49:14.333Z">
+<meta property="article:modified_time" content="2023-05-07T14:04:54.340Z">
 <meta property="article:author" content="YANG Tao">
 <meta property="article:tag" content="shared_ptr memory layout">
 <meta name="twitter:card" content="summary">
@@ -32,17 +32,17 @@
     
 
     
-<link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../../../../libs/font-awesome/css/font-awesome.min.css">
 
     
-<link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
+<link rel="stylesheet" href="../../../../../libs/titillium-web/styles.css">
 
     
-<link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
+<link rel="stylesheet" href="../../../../../libs/source-code-pro/styles.css">
 
 
     
-<link rel="stylesheet" href="../../../../css/style.css">
+<link rel="stylesheet" href="../../../../../css/style.css">
 
 
     
@@ -51,12 +51,12 @@
     
     
         
-<link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+<link rel="stylesheet" href="../../../../../libs/lightgallery/css/lightgallery.min.css">
 
     
     
         
-<link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="../../../../../libs/justified-gallery/justifiedGallery.min.css">
 
     
     
@@ -185,7 +185,7 @@
         <div class="article-entry" itemprop="articleBody">
             <!-- toc -->
 
-<h1 id="Struct"><a href="#Struct" class="headerlink" title="Struct"></a>Struct</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">__shared_ptr</span> &#123;</span><br><span class="line">    element_type*	   _M_ptr;         <span class="comment">// Contained pointer.</span></span><br><span class="line">    __shared_count&lt;_Lp&gt;  _M_refcount;    <span class="comment">// Reference counter.</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">__shared_count</span> &#123;</span><br><span class="line">	_Sp_counted_base&lt;_Lp&gt;*  _M_pi;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_Sp_counted_ptr</span> <span class="keyword">final</span> : <span class="keyword">public</span> _Sp_counted_base&lt;_Lp&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_Sp_counted_deleter</span> <span class="keyword">final</span> : <span class="keyword">public</span> _Sp_counted_base&lt;_Lp&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_Sp_counted_ptr_inplace</span> <span class="keyword">final</span> : <span class="keyword">public</span> _Sp_counted_base&lt;_Lp&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_Sp_counted_base</span></span><br><span class="line">    </span><br><span class="line">    _Atomic_word  _M_use_count;     <span class="comment">// #shared</span></span><br><span class="line">    _Atomic_word  _M_weak_count;    <span class="comment">// #weak + (#shared != 0)</span></span><br><span class="line">   _Impl _M_impl;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="Struct"><a href="#Struct" class="headerlink" title="Struct"></a>Struct</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">__shared_ptr</span> &#123;</span><br><span class="line">    element_type*	   _M_ptr;         <span class="comment">// Contained pointer.</span></span><br><span class="line">    __shared_count&lt;_Lp&gt;  _M_refcount;    <span class="comment">// Reference counter.</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">__shared_count</span> &#123;</span><br><span class="line">	_Sp_counted_base&lt;_Lp&gt;*  _M_pi;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_Sp_counted_ptr</span> <span class="keyword">final</span> : <span class="keyword">public</span> _Sp_counted_base&lt;_Lp&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_Sp_counted_deleter</span> <span class="keyword">final</span> : <span class="keyword">public</span> _Sp_counted_base&lt;_Lp&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_Sp_counted_ptr_inplace</span> <span class="keyword">final</span> : <span class="keyword">public</span> _Sp_counted_base&lt;_Lp&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_Sp_counted_base</span> &#123;</span><br><span class="line"></span><br><span class="line">    _Atomic_word  _M_use_count;     <span class="comment">// #shared</span></span><br><span class="line">    _Atomic_word  _M_weak_count;    <span class="comment">// #weak + (#shared != 0)</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> _Ptr, _Lock_policy _Lp&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">_Sp_counted_ptr</span> <span class="keyword">final</span> : <span class="keyword">public</span> _Sp_counted_base&lt;_Lp&gt; &#123;</span><br><span class="line">    _Ptr             _M_ptr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
