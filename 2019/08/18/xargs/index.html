@@ -1,56 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     
     <title>xargs | Personal Blog Web</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="shell">
+        <meta name="keywords" content="shell" />
     
-    <meta name="description" content="xargs  1. How to use xargs 2. xargs v exec {}       xargs# The xargs command in UNIX is a command line utility for building an execution pipeline from standard input. Whilst tools like grep can acc">
-<meta name="keywords" content="shell">
+    <meta name="description" content="xargsThe xargs command in UNIX is a command line utility for building an execution pipeline from standard input. Whilst tools like grep can accept standard input as a parameter, many other tools can">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xargs">
 <meta property="og:url" content="http://yoursite.com/2019/08/18/xargs/index.html">
 <meta property="og:site_name" content="Personal Blog Web">
-<meta property="og:description" content="xargs  1. How to use xargs 2. xargs v exec {}       xargs# The xargs command in UNIX is a command line utility for building an execution pipeline from standard input. Whilst tools like grep can acc">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-12T13:58:12.641Z">
+<meta property="og:description" content="xargsThe xargs command in UNIX is a command line utility for building an execution pipeline from standard input. Whilst tools like grep can accept standard input as a parameter, many other tools can">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-08-18T04:04:39.000Z">
+<meta property="article:modified_time" content="2019-11-12T13:58:12.641Z">
+<meta property="article:author" content="YANG Tao">
+<meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xargs">
-<meta name="twitter:description" content="xargs  1. How to use xargs 2. xargs v exec {}       xargs# The xargs command in UNIX is a command line utility for building an execution pipeline from standard input. Whilst tools like grep can acc">
     
 
     
-        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml">
+        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml" />
     
 
     
-        <link rel="icon" href="../../../../css/images/pexels-photo-693521.png">
+        <link rel="icon" href="../../../../css/images/pexels-photo-693521.png" />
     
 
-    <link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
+    
+<link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="../../../../css/style.css">
+    
+<link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
 
-    <script src="../../../../libs/jquery/2.0.3/jquery.min.js"></script>
     
-    
-        <link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
+<link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
 
 
-</head>
-</html>
+    
+<link rel="stylesheet" href="../../../../css/style.css">
+
+
+    
+<script src="../../../../libs/jquery/2.0.3/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
 <body>
     <div id="wrap">
         <header id="header">
@@ -114,7 +128,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="../../../../js/insight.js"></script>
+
 
 </div>
                         </nav>
@@ -160,41 +176,38 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="../../../../tags/shell/">shell</a>
+        <a class="tag-link-link" href="../../../../tags/shell/" rel="tag">shell</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <div class="toc">
-<!-- toc -->
-<ul>
-<li><a href="#xargs"><code>xargs</code></a>
-<ul>
-<li><a href="#1-how-to-use-xargs">1. How to use xargs</a></li>
-<li><a href="#2-xargs-v-exec">2. <code>xargs</code> v <code>exec</code> {}</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-</div>
-<h1><span id="p-xargs"> <code>xargs</code></span><a href="#p-xargs" class="header-anchor">#</a></h1>
-<p>The <code>xargs</code> command in UNIX is a command line utility for building an execution pipeline from standard input. Whilst tools like <a href="https://shapeshed.com/unix-grep/" target="_blank" rel="noopener"><code>grep</code></a> can accept standard input as a parameter, many other tools cannot. Using <code>xargs</code> allows tools like <code>echo</code> and <a href="https://shapeshed.com/unix-rm/" target="_blank" rel="noopener"><code>rm</code></a> and <a href="https://shapeshed.com/unix-mkdir/" target="_blank" rel="noopener"><code>mkdir</code></a> to accept standard input as arguments.</p>
-<h2><span id="p-1-how-to-use-xargs"> 1. How to use xargs</span><a href="#p-1-how-to-use-xargs" class="header-anchor">#</a></h2>
-<p>By default <code>xargs</code> reads items from standard input as separated by blanks and executes a command once for each argument. In the following example standard input is piped to xargs and the <code>mkdir</code> command is run for each argument, creating three folders.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> echo 'one two three' | xargs mkdir</span><br><span class="line"><span class="meta">&gt;</span> ls</span><br><span class="line">one two three</span><br></pre></td></tr></table></figure>
-<h2><span id="p-2-xargs-v-exec"> 2. <code>xargs</code> v <code>exec</code> {}</span><a href="#p-2-xargs-v-exec" class="header-anchor">#</a></h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> find ./foo -type f -name "*.txt" -exec rm &#123;&#125; \; </span><br><span class="line"><span class="meta">&gt;</span> find ./foo -type f -name "*.txt" | xargs rm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> So which one is faster? Let’s compare a folder with 1000 files in it.</span><br><span class="line"><span class="meta">&gt;</span> time find . -type f -name "*.txt" -exec rm &#123;&#125; \;</span><br><span class="line">0.35s user 0.11s system 99% cpu 0.467 total</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> time find ./foo -type f -name "*.txt" | xargs rm</span><br><span class="line">0.00s user 0.01s system 75% cpu 0.016 total</span><br></pre></td></tr></table></figure>
-<p><a href="https://shapeshed.com/unix-xargs/" target="_blank" rel="noopener">reference</a></p>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+            <!-- toc -->
+
+<h1 id="xargs"><a href="#xargs" class="headerlink" title="xargs"></a><code>xargs</code></h1><p>The <code>xargs</code> command in UNIX is a command line utility for building an execution pipeline from standard input. Whilst tools like <a target="_blank" rel="noopener" href="https://shapeshed.com/unix-grep/"><code>grep</code></a> can accept standard input as a parameter, many other tools cannot. Using <code>xargs</code> allows tools like <code>echo</code> and <a target="_blank" rel="noopener" href="https://shapeshed.com/unix-rm/"><code>rm</code></a> and <a target="_blank" rel="noopener" href="https://shapeshed.com/unix-mkdir/"><code>mkdir</code></a> to accept standard input as arguments.</p>
+<h2 id="1-How-to-use-xargs"><a href="#1-How-to-use-xargs" class="headerlink" title="1. How to use xargs"></a>1. How to use xargs</h2><p>By default <code>xargs</code> reads items from standard input as separated by blanks and executes a command once for each argument. In the following example standard input is piped to xargs and the <code>mkdir</code> command is run for each argument, creating three folders.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">echo</span> <span class="string">&#x27;one two three&#x27;</span> | xargs <span class="built_in">mkdir</span></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">ls</span></span></span><br><span class="line">one two three</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-xargs-v-exec"><a href="#2-xargs-v-exec" class="headerlink" title="2. xargs v exec {}"></a>2. <code>xargs</code> v <code>exec</code> {}</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">find ./foo -<span class="built_in">type</span> f -name <span class="string">&quot;*.txt&quot;</span> -<span class="built_in">exec</span> <span class="built_in">rm</span> &#123;&#125; \;</span> </span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">find ./foo -<span class="built_in">type</span> f -name <span class="string">&quot;*.txt&quot;</span> | xargs <span class="built_in">rm</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">So <span class="built_in">which</span> one is faster? Let’s compare a folder with 1000 files <span class="keyword">in</span> it.</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">time find . -<span class="built_in">type</span> f -name <span class="string">&quot;*.txt&quot;</span> -<span class="built_in">exec</span> <span class="built_in">rm</span> &#123;&#125; \;</span></span><br><span class="line">0.35s user 0.11s system 99% cpu 0.467 total</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">time find ./foo -<span class="built_in">type</span> f -name <span class="string">&quot;*.txt&quot;</span> | xargs <span class="built_in">rm</span></span></span><br><span class="line">0.00s user 0.01s system 75% cpu 0.016 total</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<p><a target="_blank" rel="noopener" href="https://shapeshed.com/unix-xargs/">reference</a></p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2019/08/18/xargs/" data-id="cl08u301l000dxgf3bohvchh1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2019/08/18/xargs/" data-id="clhd8tkhu000uqoue1dvahaut" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -262,7 +275,7 @@
     
         
     <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
     
@@ -371,6 +384,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="../../../../2023/05/07/entropy/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="../../../../2023/05/07/entropy/" class="title">Entropy</a></p>
+                            <p class="item-date"><time datetime="2023-05-07T09:49:24.075Z" itemprop="datePublished">2023-05-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="../../../../2022/02/13/GDB/gdb-source-file/" class="thumbnail">
     
     
@@ -448,26 +481,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="../../../../2022/02/06/otn/wavelength-bands/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/prx-electromagnetic-spectrum.jpg)" alt="wavelength-bands" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
-                            <p class="item-title"><a href="../../../../2022/02/06/otn/wavelength-bands/" class="title">wavelength-bands</a></p>
-                            <p class="item-date"><time datetime="2022-02-06T15:33:44.000Z" itemprop="datePublished">2022-02-06</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -477,7 +490,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Cpp/">Cpp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Cpp/">Cpp</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -487,7 +500,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2023/05/">May 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/202/03/">March 0202</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -497,7 +510,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
+            <a href="../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../tags/list-memory-layout/" style="font-size: 10px;">list memory layout</a> <a href="../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
         </div>
     </div>
 
@@ -510,7 +523,7 @@
             <ul>
                 
                     <li>
-                        <a href="http://hexo.io">Hexo</a>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
                     </li>
                 
             </ul>
@@ -533,7 +546,7 @@
                 <h1 class="logo-wrap">
                     <a href="../../../../index.html" class="logo"></a>
                 </h1>
-                <p>&copy; 2022 YANG Tao</p>
+                <p>&copy; 2023 YANG Tao</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
         </div>
@@ -560,25 +573,47 @@
 
 
     
-        <script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+        
+<script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+
     
     
-        <script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+        
+<script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
     
     
 
 
 
 <!-- Custom Scripts -->
+
 <script src="../../../../js/main.js"></script>
+
 
     </div>
 </body>

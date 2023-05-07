@@ -1,56 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     
     <title>Cmake Tutorial | Personal Blog Web</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content>
+        <meta name="keywords" content="" />
     
-    <meta name="description" content="basic  生成文件的统一路径 Goolge test s  method 1 method 2         basic# 12345678910&amp;gt; mkdir build &amp;amp;&amp;amp; cd build# &amp;gt; cmake -G &quot;Visual Studio 15 2017 Win64&quot; ..&amp;gt; cmake ..# &amp;gt; cmake --build .&amp;g">
-<meta name="keywords" content="Computer Vision  Machine Learning">
+    <meta name="description" content="basic12345678910&gt; mkdir build &amp;&amp; cd build# &gt; cmake -G &quot;Visual Studio 15 2017 Win64&quot; ..&gt; cmake ..# &gt; cmake --build .&gt; cmake --build . --target ALL_BUILD --config Rele">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cmake Tutorial">
 <meta property="og:url" content="http://yoursite.com/2019/08/03/Cmake-Tutorial/index.html">
 <meta property="og:site_name" content="Personal Blog Web">
-<meta property="og:description" content="basic  生成文件的统一路径 Goolge test s  method 1 method 2         basic# 12345678910&amp;gt; mkdir build &amp;amp;&amp;amp; cd build# &amp;gt; cmake -G &quot;Visual Studio 15 2017 Win64&quot; ..&amp;gt; cmake ..# &amp;gt; cmake --build .&amp;g">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2022-02-09T17:59:22.397Z">
+<meta property="og:description" content="basic12345678910&gt; mkdir build &amp;&amp; cd build# &gt; cmake -G &quot;Visual Studio 15 2017 Win64&quot; ..&gt; cmake ..# &gt; cmake --build .&gt; cmake --build . --target ALL_BUILD --config Rele">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-08-03T07:50:49.000Z">
+<meta property="article:modified_time" content="2022-02-09T17:59:22.397Z">
+<meta property="article:author" content="YANG Tao">
+<meta property="article:tag" content="Computer Vision  Machine Learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cmake Tutorial">
-<meta name="twitter:description" content="basic  生成文件的统一路径 Goolge test s  method 1 method 2         basic# 12345678910&amp;gt; mkdir build &amp;amp;&amp;amp; cd build# &amp;gt; cmake -G &quot;Visual Studio 15 2017 Win64&quot; ..&amp;gt; cmake ..# &amp;gt; cmake --build .&amp;g">
     
 
     
-        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml">
+        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml" />
     
 
     
-        <link rel="icon" href="../../../../css/images/pexels-photo-693521.png">
+        <link rel="icon" href="../../../../css/images/pexels-photo-693521.png" />
     
 
-    <link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
+    
+<link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="../../../../css/style.css">
+    
+<link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
 
-    <script src="../../../../libs/jquery/2.0.3/jquery.min.js"></script>
     
-    
-        <link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
+<link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
 
 
-</head>
-</html>
+    
+<link rel="stylesheet" href="../../../../css/style.css">
+
+
+    
+<script src="../../../../libs/jquery/2.0.3/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
 <body>
     <div id="wrap">
         <header id="header">
@@ -114,7 +128,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="../../../../js/insight.js"></script>
+
 
 </div>
                         </nav>
@@ -162,41 +178,21 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <div class="toc">
-<!-- toc -->
-<ul>
-<li><a href="#basic">basic</a>
-<ul>
-<li><a href="#sheng-cheng-wen-jian-de-tong-yi-lu-jing">生成文件的统一路径</a></li>
-<li><a href="#goolge-test-s">Goolge test s</a>
-<ul>
-<li><a href="#method-1">method 1</a></li>
-<li><a href="#method-2">method 2</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-</div>
-<h1><span id="p-basic"> basic</span><a href="#p-basic" class="header-anchor">#</a></h1>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> mkdir build &amp;&amp; cd build</span><br><span class="line"><span class="meta">#</span> </span><br><span class="line"><span class="meta">&gt;</span> cmake -G "Visual Studio 15 2017 Win64" ..</span><br><span class="line"><span class="meta">&gt;</span> cmake ..</span><br><span class="line"><span class="meta">#</span> </span><br><span class="line"><span class="meta">&gt;</span> cmake --build .</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> cmake --build . --target ALL_BUILD --config Release</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> ctest -VV -C Release</span><br></pre></td></tr></table></figure>
-<h2><span id="p-sheng-cheng-wen-jian-de-tong-yi-lu-jing"> 生成文件的统一路径</span><a href="#p-sheng-cheng-wen-jian-de-tong-yi-lu-jing" class="header-anchor">#</a></h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if(NOT CMAKE_RUNTIME_OUTPUT_DIRECTORY)</span><br><span class="line">  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$&#123;PROJECT_BINARY_DIR&#125;/bin")</span><br><span class="line">endif()</span><br><span class="line">if(NOT CMAKE_LIBRARY_OUTPUT_DIRECTORY)</span><br><span class="line">  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$&#123;PROJECT_BINARY_DIR&#125;/lib")</span><br><span class="line">endif()</span><br><span class="line">if(NOT CMAKE_ARCHIVE_OUTPUT_DIRECTORY)</span><br><span class="line">  set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "$&#123;PROJECT_BINARY_DIR&#125;/lib")</span><br><span class="line">endif()</span><br><span class="line"><span class="meta">#</span> windows dynamic library</span><br><span class="line">set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)</span><br></pre></td></tr></table></figure>
-<h2><span id="p-goolge-test-s"> Goolge test s</span><a href="#p-goolge-test-s" class="header-anchor">#</a></h2>
-<h3><span id="p-method-1"> method 1</span><a href="#p-method-1" class="header-anchor">#</a></h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">find_package(Threads REQUIRED)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Enable ExternalProject CMake module</span><br><span class="line">include(ExternalProject)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Download and install GoogleTest</span><br><span class="line">ExternalProject_Add(</span><br><span class="line">    gtest</span><br><span class="line">    # URL file://</span><br><span class="line">    # PREFIX</span><br><span class="line">      GIT_REPOSITORY    https://github.com/google/googletest.git</span><br><span class="line">  GIT_TAG           master</span><br><span class="line">  SOURCE_DIR        "$&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-src"</span><br><span class="line">  BINARY_DIR        "$&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-build"</span><br><span class="line">  CMAKE_CACHE_ARGS</span><br><span class="line">    # -DBUILD_SHARED_LIBS:BOOL=ON</span><br><span class="line">  CMAKE_ARGS</span><br><span class="line">    -Dgtest_force_shared_crt=ON</span><br><span class="line">  INSTALL_COMMAND   ""</span><br><span class="line">  TEST_COMMAND      ""</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Get GTest source and binary directories from CMake project</span><br><span class="line">ExternalProject_Get_Property(gtest source_dir binary_dir)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Create a libgtest target to be used as a dependency by test programs</span><br><span class="line">add_library(libgtest IMPORTED STATIC GLOBAL)</span><br><span class="line">add_dependencies(libgtest gtest)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Set libgtest properties</span><br><span class="line">set_target_properties(libgtest PROPERTIES</span><br><span class="line">    "IMPORTED_LOCATION" "$&#123;binary_dir&#125;/lib/Release/gtest.lib"</span><br><span class="line">    "IMPORTED_LINK_INTERFACE_LIBRARIES" "$&#123;CMAKE_THREAD_LIBS_INIT&#125;"</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Create a libgmock target to be used as a dependency by test programs</span><br><span class="line">add_library(libgmock IMPORTED STATIC GLOBAL)</span><br><span class="line">add_dependencies(libgmock gmock)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Set libgmock properties</span><br><span class="line">set_target_properties(libgmock PROPERTIES</span><br><span class="line">    "IMPORTED_LOCATION" "$&#123;binary_dir&#125;/lib/Release/gmock.lib"</span><br><span class="line">    "IMPORTED_LINK_INTERFACE_LIBRARIES" "$&#123;CMAKE_THREAD_LIBS_INIT&#125;"</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> I couldn't make it work with INTERFACE_INCLUDE_DIRECTORIES</span><br><span class="line">include_directories("$&#123;source_dir&#125;/googletest/include"</span><br><span class="line">                    "$&#123;source_dir&#125;/googlemock/include")</span><br><span class="line"></span><br><span class="line">add_subdirectory(testfoo)</span><br></pre></td></tr></table></figure>
-<h3><span id="p-method-2"> method 2</span><a href="#p-method-2" class="header-anchor">#</a></h3>
-<p>[refer]](<a href="https://github.com/google/googletest/blob/master/googletest/README.md" target="_blank" rel="noopener">https://github.com/google/googletest/blob/master/googletest/README.md</a>)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> new CMakeLists.txt.in</span><br><span class="line">cmake_minimum_required(VERSION 2.8.2)</span><br><span class="line"></span><br><span class="line">project(googletest-download NONE)</span><br><span class="line"></span><br><span class="line">include(ExternalProject)</span><br><span class="line">ExternalProject_Add(googletest</span><br><span class="line">  GIT_REPOSITORY  </span><br><span class="line"><span class="meta">  #</span> URL  file://LocalocationFiles</span><br><span class="line"><span class="meta">  #</span> PREFIX</span><br><span class="line">  https://github.com/google/googletest.git</span><br><span class="line">  GIT_TAG           master</span><br><span class="line">  SOURCE_DIR        "$&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-src"</span><br><span class="line">  BINARY_DIR        "$&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-build"</span><br><span class="line">  CONFIGURE_COMMAND ""</span><br><span class="line">  BUILD_COMMAND     ""</span><br><span class="line">  INSTALL_COMMAND   ""</span><br><span class="line">  TEST_COMMAND      ""</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> CMakeFiles.txt</span><br><span class="line"><span class="meta">#</span> Download and unpack googletest at configure time</span><br><span class="line">configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)</span><br><span class="line">execute_process(COMMAND $&#123;CMAKE_COMMAND&#125; -G "$&#123;CMAKE_GENERATOR&#125;" .</span><br><span class="line">  RESULT_VARIABLE result</span><br><span class="line">  WORKING_DIRECTORY $&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-download )</span><br><span class="line">if(result)</span><br><span class="line">  message(FATAL_ERROR "CMake step for googletest failed: $&#123;result&#125;")</span><br><span class="line">endif()</span><br><span class="line">execute_process(COMMAND $&#123;CMAKE_COMMAND&#125; --build .</span><br><span class="line">  RESULT_VARIABLE result</span><br><span class="line">  WORKING_DIRECTORY $&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-download )</span><br><span class="line">if(result)</span><br><span class="line">  message(FATAL_ERROR "Build step for googletest failed: $&#123;result&#125;")</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Prevent overriding the parent project's compiler/linker</span><br><span class="line"><span class="meta">#</span> settings on Windows</span><br><span class="line">set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Add googletest directly to our build. This defines</span><br><span class="line"><span class="meta">#</span> the gtest and gtest_main targets.</span><br><span class="line"><span class="meta">add_subdirectory($</span>&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-src</span><br><span class="line">                 $&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-build</span><br><span class="line">                 EXCLUDE_FROM_ALL)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> The gtest/gtest_main targets carry header search path</span><br><span class="line"><span class="meta">#</span> dependencies automatically when using CMake 2.8.11 or</span><br><span class="line"><span class="meta">#</span> later. Otherwise we have to add them here ourselves.</span><br><span class="line">if (CMAKE_VERSION VERSION_LESS 2.8.11)</span><br><span class="line">  include_directories("$&#123;gtest_SOURCE_DIR&#125;/include")</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Now simply link against gtest or gtest_main as needed. Eg</span><br><span class="line">add_executable(example example.cpp)</span><br><span class="line">target_link_libraries(example gtest_main)</span><br><span class="line">add_test(NAME example_test COMMAND example)</span><br></pre></td></tr></table></figure>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+            <!-- toc -->
+
+<h1 id="basic"><a href="#basic" class="headerlink" title="basic"></a>basic</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash">&gt; cmake -G <span class="string">&quot;Visual Studio 15 2017 Win64&quot;</span> ..</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">cmake ..</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash">&gt; cmake --build .</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">cmake --build . --target ALL_BUILD --config Release</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ctest -VV -C Release</span></span><br></pre></td></tr></table></figure>
+<h2 id="生成文件的统一路径"><a href="#生成文件的统一路径" class="headerlink" title="生成文件的统一路径"></a>生成文件的统一路径</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if(NOT CMAKE_RUNTIME_OUTPUT_DIRECTORY)</span><br><span class="line">  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY &quot;$&#123;PROJECT_BINARY_DIR&#125;/bin&quot;)</span><br><span class="line">endif()</span><br><span class="line">if(NOT CMAKE_LIBRARY_OUTPUT_DIRECTORY)</span><br><span class="line">  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY &quot;$&#123;PROJECT_BINARY_DIR&#125;/lib&quot;)</span><br><span class="line">endif()</span><br><span class="line">if(NOT CMAKE_ARCHIVE_OUTPUT_DIRECTORY)</span><br><span class="line">  set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY &quot;$&#123;PROJECT_BINARY_DIR&#125;/lib&quot;)</span><br><span class="line">endif()</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">windows dynamic library</span></span><br><span class="line">set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Goolge-test-s"><a href="#Goolge-test-s" class="headerlink" title="Goolge test s"></a>Goolge test s</h2><h3 id="method-1"><a href="#method-1" class="headerlink" title="method 1"></a>method 1</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">find_package(Threads REQUIRED)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Enable ExternalProject CMake module</span></span><br><span class="line">include(ExternalProject)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Download and install GoogleTest</span></span><br><span class="line">ExternalProject_Add(</span><br><span class="line">    gtest</span><br><span class="line">    # URL file://</span><br><span class="line">    # PREFIX</span><br><span class="line">      GIT_REPOSITORY    https://github.com/google/googletest.git</span><br><span class="line">  GIT_TAG           master</span><br><span class="line">  SOURCE_DIR        &quot;$&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-src&quot;</span><br><span class="line">  BINARY_DIR        &quot;$&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-build&quot;</span><br><span class="line">  CMAKE_CACHE_ARGS</span><br><span class="line">    # -DBUILD_SHARED_LIBS:BOOL=ON</span><br><span class="line">  CMAKE_ARGS</span><br><span class="line">    -Dgtest_force_shared_crt=ON</span><br><span class="line">  INSTALL_COMMAND   &quot;&quot;</span><br><span class="line">  TEST_COMMAND      &quot;&quot;</span><br><span class="line">)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Get GTest <span class="built_in">source</span> and binary directories from CMake project</span></span><br><span class="line">ExternalProject_Get_Property(gtest source_dir binary_dir)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Create a libgtest target to be used as a dependency by <span class="built_in">test</span> programs</span></span><br><span class="line">add_library(libgtest IMPORTED STATIC GLOBAL)</span><br><span class="line">add_dependencies(libgtest gtest)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Set libgtest properties</span></span><br><span class="line">set_target_properties(libgtest PROPERTIES</span><br><span class="line">    &quot;IMPORTED_LOCATION&quot; &quot;$&#123;binary_dir&#125;/lib/Release/gtest.lib&quot;</span><br><span class="line">    &quot;IMPORTED_LINK_INTERFACE_LIBRARIES&quot; &quot;$&#123;CMAKE_THREAD_LIBS_INIT&#125;&quot;</span><br><span class="line">)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Create a libgmock target to be used as a dependency by <span class="built_in">test</span> programs</span></span><br><span class="line">add_library(libgmock IMPORTED STATIC GLOBAL)</span><br><span class="line">add_dependencies(libgmock gmock)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Set libgmock properties</span></span><br><span class="line">set_target_properties(libgmock PROPERTIES</span><br><span class="line">    &quot;IMPORTED_LOCATION&quot; &quot;$&#123;binary_dir&#125;/lib/Release/gmock.lib&quot;</span><br><span class="line">    &quot;IMPORTED_LINK_INTERFACE_LIBRARIES&quot; &quot;$&#123;CMAKE_THREAD_LIBS_INIT&#125;&quot;</span><br><span class="line">)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">I couldn<span class="string">&#x27;t make it work with INTERFACE_INCLUDE_DIRECTORIES</span></span></span><br><span class="line">include_directories(&quot;$&#123;source_dir&#125;/googletest/include&quot;</span><br><span class="line">                    &quot;$&#123;source_dir&#125;/googlemock/include&quot;)</span><br><span class="line"></span><br><span class="line">add_subdirectory(testfoo)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="method-2"><a href="#method-2" class="headerlink" title="method 2"></a>method 2</h3><p>[refer]](<a target="_blank" rel="noopener" href="https://github.com/google/googletest/blob/master/googletest/README.md">https://github.com/google/googletest/blob/master/googletest/README.md</a>)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">new CMakeLists.txt.in</span></span><br><span class="line">cmake_minimum_required(VERSION 2.8.2)</span><br><span class="line"></span><br><span class="line">project(googletest-download NONE)</span><br><span class="line"></span><br><span class="line">include(ExternalProject)</span><br><span class="line">ExternalProject_Add(googletest</span><br><span class="line">  GIT_REPOSITORY  </span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash">URL  file://LocalocationFiles</span></span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash">PREFIX</span></span><br><span class="line">  https://github.com/google/googletest.git</span><br><span class="line">  GIT_TAG           master</span><br><span class="line">  SOURCE_DIR        &quot;$&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-src&quot;</span><br><span class="line">  BINARY_DIR        &quot;$&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-build&quot;</span><br><span class="line">  CONFIGURE_COMMAND &quot;&quot;</span><br><span class="line">  BUILD_COMMAND     &quot;&quot;</span><br><span class="line">  INSTALL_COMMAND   &quot;&quot;</span><br><span class="line">  TEST_COMMAND      &quot;&quot;</span><br><span class="line">)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CMakeFiles.txt</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Download and unpack googletest at configure time</span></span><br><span class="line">configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)</span><br><span class="line">execute_process(COMMAND $&#123;CMAKE_COMMAND&#125; -G &quot;$&#123;CMAKE_GENERATOR&#125;&quot; .</span><br><span class="line">  RESULT_VARIABLE result</span><br><span class="line">  WORKING_DIRECTORY $&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-download )</span><br><span class="line">if(result)</span><br><span class="line">  message(FATAL_ERROR &quot;CMake step for googletest failed: $&#123;result&#125;&quot;)</span><br><span class="line">endif()</span><br><span class="line">execute_process(COMMAND $&#123;CMAKE_COMMAND&#125; --build .</span><br><span class="line">  RESULT_VARIABLE result</span><br><span class="line">  WORKING_DIRECTORY $&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-download )</span><br><span class="line">if(result)</span><br><span class="line">  message(FATAL_ERROR &quot;Build step for googletest failed: $&#123;result&#125;&quot;)</span><br><span class="line">endif()</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Prevent overriding the parent project<span class="string">&#x27;s compiler/linker</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">settings on Windows</span></span></span><br><span class="line">set(gtest_force_shared_crt ON CACHE BOOL &quot;&quot; FORCE)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">Add googletest directly to our build. This defines</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">the gtest and gtest_main targets.</span></span></span><br><span class="line"><span class="meta prompt_">add_subdirectory($</span><span class="language-bash"><span class="string">&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-src</span></span></span><br><span class="line">                 $&#123;CMAKE_CURRENT_BINARY_DIR&#125;/googletest-build</span><br><span class="line">                 EXCLUDE_FROM_ALL)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">The gtest/gtest_main targets carry header search path</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">dependencies automatically when using CMake 2.8.11 or</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">later. Otherwise we have to add them here ourselves.</span></span></span><br><span class="line">if (CMAKE_VERSION VERSION_LESS 2.8.11)</span><br><span class="line">  include_directories(&quot;$&#123;gtest_SOURCE_DIR&#125;/include&quot;)</span><br><span class="line">endif()</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">Now simply link against gtest or gtest_main as needed. Eg</span></span></span><br><span class="line">add_executable(example example.cpp)</span><br><span class="line">target_link_libraries(example gtest_main)</span><br><span class="line">add_test(NAME example_test COMMAND example)</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2019/08/03/Cmake-Tutorial/" data-id="cl08u30190003xgf3ff1u2hh6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2019/08/03/Cmake-Tutorial/" data-id="clhd8tkgd0004qoue58cr0d01" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -264,7 +260,7 @@
     
         
     <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
     
@@ -352,6 +348,12 @@
     </a>
     
     
+        <a href="../../../../0202/03/26/Cpp/Cpp-list/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">map memory layout</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
 </nav>
 
     
@@ -363,6 +365,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../../2023/05/07/entropy/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="../../../../2023/05/07/entropy/" class="title">Entropy</a></p>
+                            <p class="item-date"><time datetime="2023-05-07T09:49:24.075Z" itemprop="datePublished">2023-05-07</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -444,26 +466,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="../../../../2022/02/06/otn/wavelength-bands/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/prx-electromagnetic-spectrum.jpg)" alt="wavelength-bands" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../../categories/OTN/">OTN</a></p>
-                            <p class="item-title"><a href="../../../../2022/02/06/otn/wavelength-bands/" class="title">wavelength-bands</a></p>
-                            <p class="item-date"><time datetime="2022-02-06T15:33:44.000Z" itemprop="datePublished">2022-02-06</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -473,7 +475,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Cpp/">Cpp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Cpp/">Cpp</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -483,7 +485,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2023/05/">May 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/202/03/">March 0202</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -493,7 +495,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
+            <a href="../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../tags/list-memory-layout/" style="font-size: 10px;">list memory layout</a> <a href="../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
         </div>
     </div>
 
@@ -506,7 +508,7 @@
             <ul>
                 
                     <li>
-                        <a href="http://hexo.io">Hexo</a>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
                     </li>
                 
             </ul>
@@ -529,7 +531,7 @@
                 <h1 class="logo-wrap">
                     <a href="../../../../index.html" class="logo"></a>
                 </h1>
-                <p>&copy; 2022 YANG Tao</p>
+                <p>&copy; 2023 YANG Tao</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
         </div>
@@ -556,25 +558,47 @@
 
 
     
-        <script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+        
+<script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+
     
     
-        <script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+        
+<script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
     
     
 
 
 
 <!-- Custom Scripts -->
+
 <script src="../../../../js/main.js"></script>
+
 
     </div>
 </body>

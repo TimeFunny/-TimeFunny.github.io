@@ -1,58 +1,72 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     
     <title>Personal Blog Web</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="oadm">
+        <meta name="keywords" content="oadm" />
     
-    <meta name="description" content="OADM (Optical Add-Drop Multiplexer)  Introduction Structure and Working Principle of OADM Types of OADM  Fixed Optical Add-Drop Multiplexers (FOADM) Reconfigurable Optical Add-Drop Multiplexers (RO">
-<meta name="keywords" content="oadm">
+    <meta name="description" content="OADM (Optical Add-Drop Multiplexer)Introduction​    The evolution of single wavelength point-to-point transmission lines to wavelength division multiplexed optical networks has introduced a demand f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Personal Blog Web">
 <meta property="og:url" content="http://yoursite.com/2022/01/31/otn/oadm/index.html">
 <meta property="og:site_name" content="Personal Blog Web">
-<meta property="og:description" content="OADM (Optical Add-Drop Multiplexer)  Introduction Structure and Working Principle of OADM Types of OADM  Fixed Optical Add-Drop Multiplexers (FOADM) Reconfigurable Optical Add-Drop Multiplexers (RO">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="OADM (Optical Add-Drop Multiplexer)Introduction​    The evolution of single wavelength point-to-point transmission lines to wavelength division multiplexed optical networks has introduced a demand f">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/basic-operation-of-oadm.png">
-<meta property="og:updated_time" content="2022-02-04T06:05:43.348Z">
+<meta property="article:published_time" content="2022-01-31T00:51:42.000Z">
+<meta property="article:modified_time" content="2022-02-04T06:05:43.348Z">
+<meta property="article:author" content="YANG Tao">
+<meta property="article:tag" content="oadm">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Personal Blog Web">
-<meta name="twitter:description" content="OADM (Optical Add-Drop Multiplexer)  Introduction Structure and Working Principle of OADM Types of OADM  Fixed Optical Add-Drop Multiplexers (FOADM) Reconfigurable Optical Add-Drop Multiplexers (RO">
 <meta name="twitter:image" content="http://yoursite.com/images/basic-operation-of-oadm.png">
     
 
     
-        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml">
+        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml" />
     
 
     
-        <link rel="icon" href="../../../../../css/images/pexels-photo-693521.png">
+        <link rel="icon" href="../../../../../css/images/pexels-photo-693521.png" />
     
 
-    <link rel="stylesheet" href="../../../../../libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../../../../libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="../../../../../libs/source-code-pro/styles.css">
+    
+<link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="../../../../../css/style.css">
+    
+<link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
 
-    <script src="../../../../../libs/jquery/2.0.3/jquery.min.js"></script>
     
-    
-        <link rel="stylesheet" href="../../../../../libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="../../../../../libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
+<link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
 
 
-</head>
-</html>
+    
+<link rel="stylesheet" href="../../../../css/style.css">
+
+
+    
+<script src="../../../../../libs/jquery/2.0.3/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
 <body>
     <div id="wrap">
         <header id="header">
@@ -116,7 +130,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="../../../../../js/insight.js"></script>
+
 
 </div>
                         </nav>
@@ -152,89 +168,60 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="../../../../../tags/oadm/">oadm</a>
+        <a class="tag-link-link" href="../../../../../tags/oadm/" rel="tag">oadm</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <div class="toc">
-<!-- toc -->
+            <!-- toc -->
+
+<h1 id="OADM-Optical-Add-Drop-Multiplexer"><a href="#OADM-Optical-Add-Drop-Multiplexer" class="headerlink" title="OADM (Optical Add-Drop Multiplexer)"></a>OADM (Optical Add-Drop Multiplexer)</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>​    The evolution of single wavelength point-to-point transmission lines to wavelength division multiplexed optical networks has introduced a demand for <code>wavelength selective optical add-drop multiplexers (OADMs)</code> to seprarte&#x2F;route different wavelength channels. OADM is a device used in wavelength-division multiplexing systems for multiplexing and routing different channels of light into or out of a <code>singlemode fiber (SMF)</code>. This is a type of optical node, which is generally used for the construction of optical telecommunications networks. </p>
 <ul>
-<li><a href="#oadm-optical-add-drop-multiplexer">OADM (Optical Add-Drop Multiplexer)</a>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#structure-and-working-principle-of-oadm">Structure and Working Principle of OADM</a></li>
-<li><a href="#types-of-oadm">Types of OADM</a>
-<ul>
-<li><a href="#fixed-optical-add-drop-multiplexers-foadm">Fixed Optical Add-Drop Multiplexers (FOADM)</a></li>
-<li><a href="#reconfigurable-optical-add-drop-multiplexers-roadm">Reconfigurable Optical Add-Drop Multiplexers (ROADM)</a></li>
-</ul>
+<li><p><code>add</code></p>
+<p><code>Add</code> refers to the capability of the device to add one or more new wavelength channels to an existing multi-wavelength WDM signal while “</p>
 </li>
-<li><a href="#reference">Reference</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-</div>
-<h1><span id="p-oadm-optical-add-drop-multiplexer"> OADM (Optical Add-Drop Multiplexer)</span><a href="#p-oadm-optical-add-drop-multiplexer" class="header-anchor">#</a></h1>
-<h2><span id="p-introduction"> Introduction</span><a href="#p-introduction" class="header-anchor">#</a></h2>
-<p>​    The evolution of single wavelength point-to-point transmission lines to wavelength division multiplexed optical networks has introduced a demand for <code>wavelength selective optical add-drop multiplexers (OADMs)</code> to seprarte/route different wavelength channels. OADM is a device used in wavelength-division multiplexing systems for multiplexing and routing different channels of light into or out of a <code>singlemode fiber (SMF)</code>. This is a type of optical node, which is generally used for the construction of optical telecommunications networks.</p>
-<ul>
-<li>
-<p><code>add</code></p>
-<p><code>Add</code> refers to the capability of the device to add one or more new wavelength channels to an existing multi-wavelength WDM signal while &quot;</p>
-</li>
-<li>
-<p><code>drop</code></p>
+<li><p><code>drop</code></p>
 <p><code>drop</code> refers to drop or remove one or more channels, passing those signals to another network path.</p>
 </li>
 </ul>
 <p>​     An OADM may be considered to be a specific type of <code>optical cross-connect</code>. The main implementation technologies of OADM are <code>WDM (Wavelength Division Multiplexing)</code>, <code>O-CDMA (Optical Code Division Multiple Access)</code> and <code>OTDM (Optical Time Division Multiplexing)</code>. OADM is the key component of AON(All-Optical Network).</p>
-<h2><span id="p-structure-and-working-principle-of-oadm"> Structure and Working Principle of OADM</span><a href="#p-structure-and-working-principle-of-oadm" class="header-anchor">#</a></h2>
-<p>OADM working process as follows:</p>
+<h2 id="Structure-and-Working-Principle-of-OADM"><a href="#Structure-and-Working-Principle-of-OADM" class="headerlink" title="Structure and Working Principle of OADM"></a>Structure and Working Principle of OADM</h2><p>OADM working process as follows: </p>
 <ul>
-<li>
-<p>WDM signals from line contains N wavelength channel, enter the OADM “Main Input” side, depending on your business needs;</p>
+<li><p>WDM signals from line contains N wavelength channel, enter the OADM “Main Input” side, depending on your business needs;</p>
 </li>
-<li>
-<p>from N wavelength channel, selectively from the road-side (Drop) required by the output wavelength channel, accordingly from the road-end (Add) enter the desired wavelength channel.</p>
+<li><p>from N wavelength channel, selectively from the road-side (Drop) required by the output wavelength channel, accordingly from the road-end (Add) enter the desired wavelength channel. </p>
 </li>
-<li>
-<p>Regardless of other local wavelength channel directly through the OADM, and routing wavelength channels multiplexed together, from the output terminals of the circuit of <code>OADM (Main Output)</code>output.</p>
+<li><p>Regardless of other local wavelength channel directly through the OADM, and routing wavelength channels multiplexed together, from the output terminals of the circuit of <code>OADM (Main Output) </code>output.</p>
 <p>The following picture shows the basic operation of an OADM.</p>
 </li>
 </ul>
 <p><img src="/images/basic-operation-of-oadm.png" alt="basic-operation-of-oadm"></p>
-<h2><span id="p-types-of-oadm"> Types of OADM</span><a href="#p-types-of-oadm" class="header-anchor">#</a></h2>
-<h3><span id="p-fixed-optical-add-drop-multiplexers-foadm"> Fixed Optical Add-Drop Multiplexers (FOADM)</span><a href="#p-fixed-optical-add-drop-multiplexers-foadm" class="header-anchor">#</a></h3>
-<ul>
-<li>a traditional wavelength arrangement scheme that can only input or output a single wavelength via the fixed port.</li>
+<h2 id="Types-of-OADM"><a href="#Types-of-OADM" class="headerlink" title="Types of OADM"></a>Types of OADM</h2><h3 id="Fixed-Optical-Add-Drop-Multiplexers-FOADM"><a href="#Fixed-Optical-Add-Drop-Multiplexers-FOADM" class="headerlink" title="Fixed Optical Add-Drop Multiplexers (FOADM)"></a>Fixed Optical Add-Drop Multiplexers (FOADM)</h3><ul>
+<li>a traditional wavelength arrangement scheme that can only input or output a single wavelength via the fixed port. </li>
 <li>FOADMs have pre-assigned channels at static nodes and allowed adding and dropping of individual or multiple wavelength channels from a DWDM.</li>
 </ul>
-<h3><span id="p-reconfigurable-optical-add-drop-multiplexers-roadm"> Reconfigurable Optical Add-Drop Multiplexers (ROADM)</span><a href="#p-reconfigurable-optical-add-drop-multiplexers-roadm" class="header-anchor">#</a></h3>
-<ul>
-<li>is a dynamic wavelength arrangement scheme, allows for <code>dynamic wavelength arrangement scheme</code> using <a href="https://en.wikipedia.org/wiki/Wavelength_selective_switching" target="_blank" rel="noopener"><code>a wavelength selective switch (WSS)</code></a>.</li>
-<li>The 8-dimensional cross-connect provided by the WSS enables quick service start-up, remote cross-connect and WDM mesh networking.</li>
-<li>The ROADM scheme can also achieve inputting/outputting a single wavelength or wavelength group via the fixed port.</li>
-<li>ROADM can add, block, pass or redirect modulated infrared (IR) and visible light beams of various wavelengths in a fiber optic network.</li>
+<h3 id="Reconfigurable-Optical-Add-Drop-Multiplexers-ROADM"><a href="#Reconfigurable-Optical-Add-Drop-Multiplexers-ROADM" class="headerlink" title="Reconfigurable Optical Add-Drop Multiplexers (ROADM)"></a>Reconfigurable Optical Add-Drop Multiplexers (ROADM)</h3><ul>
+<li>is a dynamic wavelength arrangement scheme, allows for <code>dynamic wavelength arrangement scheme</code> using <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Wavelength_selective_switching"><code>a wavelength selective switch (WSS)</code></a>. </li>
+<li>The 8-dimensional cross-connect provided by the WSS enables quick service start-up, remote cross-connect and WDM mesh networking. </li>
+<li>The ROADM scheme can also achieve inputting&#x2F;outputting a single wavelength or wavelength group via the fixed port. </li>
+<li>ROADM can add, block, pass or redirect modulated infrared (IR) and visible light beams of various wavelengths in a fiber optic network. </li>
 <li>Which featured by providing flexibility in rerouting optical streams, bypassing faulty connections, allowing minimal service disruption and the ability to adapt or upgrade the optical network to different WDM technologies.</li>
 </ul>
-<h2><span id="p-reference"> Reference</span><a href="#p-reference" class="header-anchor">#</a></h2>
-<ol>
-<li><a href="https://www.fiber-mart.com/news/oadm-optical-adddrop-multiplexer-tutorial-a-890.html?language=en" target="_blank" rel="noopener"><strong>OADM (Optical Add-Drop Multiplexer) Tutorial</strong></a></li>
-<li><a href="http://www.china-cable-suppliers.com/introduction-optical-add-drop-multiplexer-oadm.html" target="_blank" rel="noopener">Introduction to Optical Add-Drop Multiplexer (OADM)</a></li>
-<li><a href="https://optiwave.com/wp-content/uploads/2016/03/adm2.pdf" target="_blank" rel="noopener">Introduction to Add-Drop Multiplexer</a></li>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://www.fiber-mart.com/news/oadm-optical-adddrop-multiplexer-tutorial-a-890.html?language=en"><strong>OADM (Optical Add-Drop Multiplexer) Tutorial</strong></a></li>
+<li><a target="_blank" rel="noopener" href="http://www.china-cable-suppliers.com/introduction-optical-add-drop-multiplexer-oadm.html">Introduction to Optical Add-Drop Multiplexer (OADM)</a></li>
+<li><a target="_blank" rel="noopener" href="https://optiwave.com/wp-content/uploads/2016/03/adm2.pdf">Introduction to Add-Drop Multiplexer</a></li>
 </ol>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2022/01/31/otn/oadm/" data-id="cl08u307r002lxgf3z0b0rwpz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2022/01/31/otn/oadm/" data-id="clhd8tkj5001wqoue75dcfyxl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -302,7 +289,7 @@
     
         
     <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
     
@@ -411,6 +398,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="../../../../../2023/05/07/entropy/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="../../../../../2023/05/07/entropy/" class="title">Entropy</a></p>
+                            <p class="item-date"><time datetime="2023-05-07T09:49:24.075Z" itemprop="datePublished">2023-05-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="../../../../02/13/GDB/gdb-source-file/" class="thumbnail">
     
     
@@ -488,26 +495,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="../../../../02/06/otn/wavelength-bands/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/prx-electromagnetic-spectrum.jpg)" alt="wavelength-bands" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/OTN/">OTN</a></p>
-                            <p class="item-title"><a href="../../../../02/06/otn/wavelength-bands/" class="title">wavelength-bands</a></p>
-                            <p class="item-date"><time datetime="2022-02-06T15:33:44.000Z" itemprop="datePublished">2022-02-06</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -517,7 +504,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Cpp/">Cpp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Cpp/">Cpp</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -527,7 +514,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2023/05/">May 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/202/03/">March 0202</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -537,7 +524,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="../../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
+            <a href="../../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../../tags/list-memory-layout/" style="font-size: 10px;">list memory layout</a> <a href="../../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
         </div>
     </div>
 
@@ -550,7 +537,7 @@
             <ul>
                 
                     <li>
-                        <a href="http://hexo.io">Hexo</a>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
                     </li>
                 
             </ul>
@@ -573,7 +560,7 @@
                 <h1 class="logo-wrap">
                     <a href="../../../../../index.html" class="logo"></a>
                 </h1>
-                <p>&copy; 2022 YANG Tao</p>
+                <p>&copy; 2023 YANG Tao</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
         </div>
@@ -600,25 +587,47 @@
 
 
     
-        <script src="../../../../../libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-video.min.js"></script>
+        
+<script src="../../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-video.min.js"></script>
+
     
     
-        <script src="../../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+        
+<script src="../../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
     
     
 
 
 
 <!-- Custom Scripts -->
+
 <script src="../../../../../js/main.js"></script>
+
 
     </div>
 </body>

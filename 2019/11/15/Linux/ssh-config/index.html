@@ -1,56 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     
     <title>ssh port forward | Personal Blog Web</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="ssh,rsync">
+        <meta name="keywords" content="ssh,rsync" />
     
-    <meta name="description" content="SSH  1. 服务器端安装ssh-server 2. ssh Client  1. SSH Login 2. Perform SSH Login Without Password   3. Forward  1. local forwarding 2. remote forwarding 3. dynamic forwarding     Rsync    openbsd ssh ssh">
-<meta name="keywords" content="ssh,rsync">
+    <meta name="description" content="openbsd ssh ssh SSH1. 服务器端安装ssh-server123456789101112131415161718# 1. 服务器端, ssh server安装# Ubuntu 没有安装SSH-server服务器，需要安装SSH服务器并开启  &gt; sudo apt-get install openssh-server# 查看是否开启；sshd代表开启 &gt; sudo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh port forward">
 <meta property="og:url" content="http://yoursite.com/2019/11/15/Linux/ssh-config/index.html">
 <meta property="og:site_name" content="Personal Blog Web">
-<meta property="og:description" content="SSH  1. 服务器端安装ssh-server 2. ssh Client  1. SSH Login 2. Perform SSH Login Without Password   3. Forward  1. local forwarding 2. remote forwarding 3. dynamic forwarding     Rsync    openbsd ssh ssh">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-03-28T09:22:22.914Z">
+<meta property="og:description" content="openbsd ssh ssh SSH1. 服务器端安装ssh-server123456789101112131415161718# 1. 服务器端, ssh server安装# Ubuntu 没有安装SSH-server服务器，需要安装SSH服务器并开启  &gt; sudo apt-get install openssh-server# 查看是否开启；sshd代表开启 &gt; sudo">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-11-15T01:39:35.000Z">
+<meta property="article:modified_time" content="2021-03-28T09:22:22.914Z">
+<meta property="article:author" content="YANG Tao">
+<meta property="article:tag" content="ssh">
+<meta property="article:tag" content="rsync">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ssh port forward">
-<meta name="twitter:description" content="SSH  1. 服务器端安装ssh-server 2. ssh Client  1. SSH Login 2. Perform SSH Login Without Password   3. Forward  1. local forwarding 2. remote forwarding 3. dynamic forwarding     Rsync    openbsd ssh ssh">
     
 
     
-        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml">
+        <link rel="alternate" href="/" title="Personal Blog Web" type="application/atom+xml" />
     
 
     
-        <link rel="icon" href="../../../../../css/images/pexels-photo-693521.png">
+        <link rel="icon" href="../../../../../css/images/pexels-photo-693521.png" />
     
 
-    <link rel="stylesheet" href="../../../../../libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../../../../libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="../../../../../libs/source-code-pro/styles.css">
+    
+<link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="../../../../../css/style.css">
+    
+<link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
 
-    <script src="../../../../../libs/jquery/2.0.3/jquery.min.js"></script>
     
-    
-        <link rel="stylesheet" href="../../../../../libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="../../../../../libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
+<link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
 
 
-</head>
-</html>
+    
+<link rel="stylesheet" href="../../../../css/style.css">
+
+
+    
+<script src="../../../../../libs/jquery/2.0.3/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
 <body>
     <div id="wrap">
         <header id="header">
@@ -114,7 +129,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="../../../../../js/insight.js"></script>
+
 
 </div>
                         </nav>
@@ -160,93 +177,71 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="../../../../../tags/rsync/">rsync</a>, <a class="tag-link" href="../../../../../tags/ssh/">ssh</a>
+        <a class="tag-link-link" href="../../../../../tags/rsync/" rel="tag">rsync</a>, <a class="tag-link-link" href="../../../../../tags/ssh/" rel="tag">ssh</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <div class="toc">
-<!-- toc -->
-<ul>
-<li><a href="#ssh">SSH</a>
-<ul>
-<li><a href="#1-fu-wu-qi-duan-an-zhuang-ssh-server">1. 服务器端安装ssh-server</a></li>
-<li><a href="#2-ssh-client">2. ssh Client</a>
-<ul>
-<li><a href="#1-ssh-login">1. SSH Login</a></li>
-<li><a href="#2-perform-ssh-login-without-password">2. Perform SSH Login Without Password</a></li>
-</ul>
-</li>
-<li><a href="#3-forward">3. Forward</a>
-<ul>
-<li><a href="#1-local-forwarding">1. local forwarding</a></li>
-<li><a href="#2-remote-forwarding">2. remote forwarding</a></li>
-<li><a href="#3-dynamic-forwarding">3. dynamic forwarding</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#rsync">Rsync</a></li>
-</ul>
-<!-- tocstop -->
-</div>
-<p><a href="http://man.openbsd.org/ssh" target="_blank" rel="noopener">openbsd ssh</a></p>
-<p><a href="https://www.ssh.com/" target="_blank" rel="noopener">ssh</a></p>
-<h1><span id="p-ssh"> SSH</span><a href="#p-ssh" class="header-anchor">#</a></h1>
-<h2><span id="p-1-fu-wu-qi-duan-an-zhuang-ssh-server"> 1. 服务器端安装ssh-server</span><a href="#p-1-fu-wu-qi-duan-an-zhuang-ssh-server" class="header-anchor">#</a></h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 1. 服务器端, ssh server安装</span><br><span class="line"><span class="meta">#</span> Ubuntu 没有安装SSH-server服务器，需要安装SSH服务器并开启  </span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get install openssh-server</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看是否开启；sshd代表开启 </span><br><span class="line"><span class="meta">&gt;</span> sudo ps -e |grep sshd </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 服务开启</span><br><span class="line"><span class="meta">&gt;</span> sudo service sshd start </span><br><span class="line"><span class="meta">&gt;</span> sudo systemctld start ssh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 可以修改配置文件，例如修改默认端口22</span><br><span class="line"><span class="meta">&gt;</span> sudo gedit /etc/ssh/sshd_config   </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>启动服务器    </span><br><span class="line"><span class="meta">&gt;</span> /etc/init.d/ssh stop 　　 # 停止  </span><br><span class="line"><span class="meta">&gt;</span> /etc/init.d/ssh start　　 # 启动  </span><br><span class="line"><span class="meta">&gt;</span> /etc/init.d/ssh restart　 # 重启</span><br></pre></td></tr></table></figure>
-<h2><span id="p-2-ssh-client"> 2. ssh Client</span><a href="#p-2-ssh-client" class="header-anchor">#</a></h2>
-<h3><span id="p-1-ssh-login"> 1.  SSH Login</span><a href="#p-1-ssh-login" class="header-anchor">#</a></h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> ssh user@host</span><br><span class="line">user@host's password:</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> auto enter passwd</span><br><span class="line"><span class="meta">&gt;</span> apt-get installl sshpass</span><br><span class="line"><span class="meta">&gt;</span> sshpass -p passwd ssh username@ipaddr</span><br></pre></td></tr></table></figure>
-<h3><span id="p-2-perform-ssh-login-without-password"> 2.  Perform SSH Login Without Password</span><a href="#p-2-perform-ssh-login-without-password" class="header-anchor">#</a></h3>
-<h4><span id="p-1-generate-key"> 1. Generate key</span><a href="#p-1-generate-key" class="header-anchor">#</a></h4>
-<p><a href="https://en.wikipedia.org/wiki/Ssh-keygen" target="_blank" rel="noopener">Generate key</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> -t: type  -f: ~/.ssh/id_rsa(default)</span><br><span class="line"><span class="meta">#</span># no passphrase</span><br><span class="line"><span class="meta">&gt;</span> ssh-keygen -t rsa -P "" -C comment -f key_path</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> copy the public key(*.pub) to server(~/.ssh/authorized_keys)</span><br><span class="line"><span class="meta">&gt;</span> ssh-copy-id -i ~/.ssh/id_rsb.pub(publice key) user@host</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> ssh user@host</span><br><span class="line"><span class="meta">#</span> 限制权限</span><br><span class="line"><span class="meta">&gt;</span> chmod 0600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
-<h4><span id="p-2-login-in"> 2. Login In</span><a href="#p-2-login-in" class="header-anchor">#</a></h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 使用默认key(~/.ssh/id_rsa)</span><br><span class="line"><span class="meta">&gt;</span> ssh user@host</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 指定key文件</span><br><span class="line"><span class="meta">&gt;</span> ssh -i key_path(private key) user@host</span><br></pre></td></tr></table></figure>
-<h4><span id="p-3-the-key-with-passphrase"> 3. The Key With Passphrase</span><a href="#p-3-the-key-with-passphrase" class="header-anchor">#</a></h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span># generate passphrse(option)</span><br><span class="line"><span class="meta">&gt;</span> opensshl rand -hex 5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># passphrase(min five chars) -P: passphrase </span><br><span class="line"><span class="meta">&gt;</span> ssh-keygen -t rsa -P "yesno" -f ~/.ssh/id_key_rsa</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 如果生成密钥包含passphrase,登陆ssh server需要输入passphrase</span><br><span class="line"><span class="meta">&gt;</span> ssh user@host</span><br><span class="line">Enter passphrase for key '/home/ty/.ssh/id_rsa':</span><br></pre></td></tr></table></figure>
-<h4><span id="p-4-bi-mian-shou-dong-shu-ru-passphrase"> 4. 避免手动输入passphrase</span><a href="#p-4-bi-mian-shou-dong-shu-ru-passphrase" class="header-anchor">#</a></h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span># 使用ssh-agent,可以避免每次手动输入passphrase</span><br><span class="line"><span class="meta">&gt;</span> eval $(ssh-agent -s)  # ssh-agent started manually </span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> ssh-add key_path</span><br><span class="line">Enter passphrase for /home/ty/.ssh/id_rsa:</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 查看所有已经缓冲的keys</span><br><span class="line"><span class="meta">&gt;</span> ssh-add -l</span><br></pre></td></tr></table></figure>
-<h4><span id="p-5-keep-connect"> 5. keep connect</span><a href="#p-5-keep-connect" class="header-anchor">#</a></h4>
-<h5><span id="p-env-tmout"> </span><a href="#p-env-tmout" class="header-anchor">#</a></h5>
-<p>OpenSSH will not terminate a shell session that has been idle for some time. This is not something that OpenSSH does. Terminating an idle shell session is unrelated to the configuration of OpenSSH.</p>
+            <!-- toc -->
+
+<p><a target="_blank" rel="noopener" href="http://man.openbsd.org/ssh">openbsd ssh</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ssh.com/">ssh</a></p>
+<h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><h2 id="1-服务器端安装ssh-server"><a href="#1-服务器端安装ssh-server" class="headerlink" title="1. 服务器端安装ssh-server"></a>1. 服务器端安装ssh-server</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1. 服务器端, ssh server安装</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 没有安装SSH-server服务器，需要安装SSH服务器并开启</span>  </span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">sudo apt-get install openssh-server</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看是否开启；sshd代表开启</span> </span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">sudo ps -e |grep sshd</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">服务开启</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">sudo service sshd start</span> </span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">sudo systemctld start ssh</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以修改配置文件，例如修改默认端口22</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">sudo gedit /etc/ssh/sshd_config</span>   </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启动服务器</span>    </span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">/etc/init.d/ssh stop 　　 <span class="comment"># 停止</span></span>  </span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">/etc/init.d/ssh start　　 <span class="comment"># 启动</span></span>  </span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">/etc/init.d/ssh restart　 <span class="comment"># 重启</span></span>  </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-ssh-Client"><a href="#2-ssh-Client" class="headerlink" title="2. ssh Client"></a>2. ssh Client</h2><h3 id="1-SSH-Login"><a href="#1-SSH-Login" class="headerlink" title="1.  SSH Login"></a>1.  SSH Login</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh user@host</span></span><br><span class="line">user@host&#x27;s password:</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">auto enter passwd</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">apt-get installl sshpass</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">sshpass -p passwd ssh username@ipaddr</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-Perform-SSH-Login-Without-Password"><a href="#2-Perform-SSH-Login-Without-Password" class="headerlink" title="2.  Perform SSH Login Without Password"></a>2.  Perform SSH Login Without Password</h3><h4 id="1-Generate-key"><a href="#1-Generate-key" class="headerlink" title="1. Generate key"></a>1. Generate key</h4><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ssh-keygen">Generate key</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-t: <span class="built_in">type</span>  -f: ~/.ssh/id_rsa(default)</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># no passphrase</span></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh-keygen -t rsa -P <span class="string">&quot;&quot;</span> -C comment -f key_path</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">copy the public key(*.pub) to server(~/.ssh/authorized_keys)</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh-copy-id -i ~/.ssh/id_rsb.pub(publice key) user@host</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh user@host</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">限制权限</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">chmod</span> 0600 ~/.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Login-In"><a href="#2-Login-In" class="headerlink" title="2. Login In"></a>2. Login In</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用默认key(~/.ssh/id_rsa)</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh user@host</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定key文件</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh -i key_path(private key) user@host</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-The-Key-With-Passphrase"><a href="#3-The-Key-With-Passphrase" class="headerlink" title="3. The Key With Passphrase"></a>3. The Key With Passphrase</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># generate passphrse(option)</span></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">opensshl rand -hex 5</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># passphrase(min five chars) -P: passphrase</span></span> </span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh-keygen -t rsa -P <span class="string">&quot;yesno&quot;</span> -f ~/.ssh/id_key_rsa</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 如果生成密钥包含passphrase,登陆ssh server需要输入passphrase</span></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh user@host</span></span><br><span class="line">Enter passphrase for key &#x27;/home/ty/.ssh/id_rsa&#x27;:</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-避免手动输入passphrase"><a href="#4-避免手动输入passphrase" class="headerlink" title="4. 避免手动输入passphrase"></a>4. 避免手动输入passphrase</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 使用ssh-agent,可以避免每次手动输入passphrase</span></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">eval</span> $(ssh-agent -s)  <span class="comment"># ssh-agent started manually</span></span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh-add key_path</span></span><br><span class="line">Enter passphrase for /home/ty/.ssh/id_rsa:</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 查看所有已经缓冲的keys</span></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh-add -l</span> </span><br></pre></td></tr></table></figure>
+
+<h4 id="5-keep-connect"><a href="#5-keep-connect" class="headerlink" title="5. keep connect"></a>5. keep connect</h4><h5 id="Env-TMOUT"><a href="#Env-TMOUT" class="headerlink" title="Env TMOUT"></a><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/150402/what-is-the-default-idle-timeout-for-openssh">Env TMOUT</a></h5><p>OpenSSH will not terminate a shell session that has been idle for some time. This is not something that OpenSSH does. Terminating an idle shell session is unrelated to the configuration of OpenSSH.</p>
 <p>The settings that you are showing are related to timeouts when the connection goes down and are unrelated to the shell on the remote host and what the user is doing or not doing there.</p>
 <p>The remote host’s shell may terminate (or may get killed by some other process) after some time of idleness, but this is unrelated to the configuration of the SSH service on the server and of your SSH client.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>  ~/.bash_profile or /etc/profile</span><br><span class="line"><span class="meta">#</span># set a 5 min timeout policy for bash shell</span><br><span class="line">TMOUT=300</span><br><span class="line">readonly TMOUT</span><br><span class="line">export TMOUT</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> echo $TMOUT</span><br><span class="line"><span class="meta">&gt;</span> unset TMOUT # or</span><br><span class="line"><span class="meta">&gt;</span> export TMOUT</span><br><span class="line"><span class="meta">&gt;</span> ssh -i key_path(private key) -o TCPKeepAlive -o Compression -o ServerAliveInterval=15 -o ServerAliveCountMax=5 user@hostname</span><br></pre></td></tr></table></figure>
-<h2><span id="p-3-forward"> 3. Forward</span><a href="#p-3-forward" class="header-anchor">#</a></h2>
-<p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/index.html" target="_blank" rel="noopener">Forwarding</a></p>
-<h4><span id="p-local-port-client-port-application-client-no-ssh-client"> <code>local port</code>:  client port(application client, no ssh client)</span><a href="#p-local-port-client-port-application-client-no-ssh-client" class="header-anchor">#</a></h4>
-<h4><span id="p-remote-port-server-port-application-server-no-ssh-server"> <code>remote port</code>:  server port(application server, no ssh server )</span><a href="#p-remote-port-server-port-application-server-no-ssh-server" class="header-anchor">#</a></h4>
-<p>-f      Requests <code>ssh</code> to go to background just before command execution.  This is useful if<br>
-<code>ssh</code> is going to ask for passwords or passphrases, but the user wants it in the<br>
-background.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> ~/.bash_profile or /etc/profile</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># set a 5 min timeout policy for bash shell</span></span></span><br><span class="line">TMOUT=300</span><br><span class="line">readonly TMOUT</span><br><span class="line">export TMOUT</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">echo</span> <span class="variable">$TMOUT</span></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">unset</span> TMOUT <span class="comment"># or</span></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">export</span> TMOUT</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh -i key_path(private key) -o TCPKeepAlive -o Compression -o ServerAliveInterval=15 -o ServerAliveCountMax=5 user@hostname</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-Forward"><a href="#3-Forward" class="headerlink" title="3. Forward"></a>3. Forward</h2><p><a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/index.html">Forwarding</a></p>
+<h4 id="local-port-client-port-application-client-no-ssh-client"><a href="#local-port-client-port-application-client-no-ssh-client" class="headerlink" title="local port:  client port(application client, no ssh client)"></a><code>local port</code>:  client port(application client, no ssh client)</h4><h4 id="remote-port-server-port-application-server-no-ssh-server"><a href="#remote-port-server-port-application-server-no-ssh-server" class="headerlink" title="remote port:  server port(application server, no ssh server )"></a><code>remote port</code>:  server port(application server, no ssh server )</h4><p> -f      Requests <code>ssh</code> to go to background just before command execution.  This is useful if<br>             <code>ssh</code> is going to ask for passwords or passphrases, but the user wants it in the<br>             background.</p>
 <p>-N      Do not execute a remote command.  This is useful for just <strong>forwarding ports</strong>.</p>
-<h3><span id="p-1-local-forwarding"> 1. local forwarding</span><a href="#p-1-local-forwarding" class="header-anchor">#</a></h3>
-<p>ssh client  &lt;——&gt; application client ;</p>
+<h3 id="1-local-forwarding"><a href="#1-local-forwarding" class="headerlink" title="1. local forwarding"></a>1. local forwarding</h3><p>ssh client  &lt;——&gt; application client ;</p>
 <p>ssh server &lt;——&gt; application server</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> in ssh client</span><br><span class="line"><span class="meta">#</span> ssh -L &lt;local port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostname&gt;</span><br><span class="line"><span class="meta">&gt;</span> ssh -N -f -L 80:localhost:80 ip/hostname</span><br></pre></td></tr></table></figure>
-<h3><span id="p-2-remote-forwarding"> 2. remote forwarding</span><a href="#p-2-remote-forwarding" class="header-anchor">#</a></h3>
-<p>ssh client  &lt;——&gt; application server ;</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">in</span> ssh client</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ssh -L &lt;<span class="built_in">local</span> port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostname&gt;</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh -N -f -L 80:localhost:80 ip/hostname</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-remote-forwarding"><a href="#2-remote-forwarding" class="headerlink" title="2. remote forwarding"></a>2. remote forwarding</h3><p>ssh client  &lt;——&gt; application server ;</p>
 <p>ssh server &lt;——&gt; application client</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> in ssh client</span><br><span class="line"><span class="meta">#</span> ssh -R &lt;ssh server port&gt;:&lt;ssh client&gt;:&lt;ssh client port&gt; &lt;SSH server hostname&gt;</span><br><span class="line"><span class="meta">&gt;</span> ssh -N -f -R 80:localhost:80 ip/hostname</span><br></pre></td></tr></table></figure>
-<h3><span id="p-3-dynamic-forwarding"> 3. dynamic forwarding</span><a href="#p-3-dynamic-forwarding" class="header-anchor">#</a></h3>
-<p>简易的端口代理, 实现不受限的远程访问(ssh server 端可以访问的所有服务)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> ssh -D &lt;local port&gt; &lt;SSH Server&gt;</span><br><span class="line"><span class="meta">&gt;</span> ssh -D 8080 ip/hostname</span><br></pre></td></tr></table></figure>
-<h1><span id="p-rsync"> Rsync</span><a href="#p-rsync" class="header-anchor">#</a></h1>
-<p>The <strong>-a</strong> option is a combination flag. It stands for “archive” and syncs recursively and preserves symbolic links, special and device files, modification times, group, owner, and permissions. It is more commonly used than <strong>-r</strong> and is usually what you want to use.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> pull the latest copy of remote server and only updates will be transferred. </span><br><span class="line"><span class="meta">&gt;</span> rsync -alpPtzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" .</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> To push content, reverse the source and target parameters in the command. </span><br><span class="line"><span class="meta">&gt;</span> rsync -alpPtzv --progress --delete --exclude=.git . "user@hostname:/remote/source/code/path"</span><br></pre></td></tr></table></figure>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">in</span> ssh client</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ssh -R &lt;ssh server port&gt;:&lt;ssh client&gt;:&lt;ssh client port&gt; &lt;SSH server hostname&gt;</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh -N -f -R 80:localhost:80 ip/hostname</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-dynamic-forwarding"><a href="#3-dynamic-forwarding" class="headerlink" title="3. dynamic forwarding"></a>3. dynamic forwarding</h3><p>简易的端口代理, 实现不受限的远程访问(ssh server 端可以访问的所有服务)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ssh -D &lt;<span class="built_in">local</span> port&gt; &lt;SSH Server&gt;</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ssh -D 8080 ip/hostname</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Rsync"><a href="#Rsync" class="headerlink" title="Rsync"></a>Rsync</h1><p>The <strong>-a</strong> option is a combination flag. It stands for “archive” and syncs recursively and preserves symbolic links, special and device files, modification times, group, owner, and permissions. It is more commonly used than <strong>-r</strong> and is usually what you want to use.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pull the latest copy of remote server and only updates will be transferred.</span> </span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">rsync -alpPtzv --progress --delete --exclude=.git <span class="string">&quot;user@hostname:/remote/source/code/path&quot;</span> .</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">To push content, reverse the <span class="built_in">source</span> and target parameters <span class="keyword">in</span> the <span class="built_in">command</span>.</span> </span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">rsync -alpPtzv --progress --delete --exclude=.git . <span class="string">&quot;user@hostname:/remote/source/code/path&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2019/11/15/Linux/ssh-config/" data-id="cl08u307d001yxgf3mlus8xr5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2019/11/15/Linux/ssh-config/" data-id="clhd8tki00013qouebz8whqzi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -314,7 +309,7 @@ background.</p>
     
         
     <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
     
@@ -423,6 +418,26 @@ background.</p>
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="../../../../../2023/05/07/entropy/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="../../../../../2023/05/07/entropy/" class="title">Entropy</a></p>
+                            <p class="item-date"><time datetime="2023-05-07T09:49:24.075Z" itemprop="datePublished">2023-05-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="../../../../../2022/02/13/GDB/gdb-source-file/" class="thumbnail">
     
     
@@ -500,26 +515,6 @@ background.</p>
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="../../../../../2022/02/06/otn/wavelength-bands/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/prx-electromagnetic-spectrum.jpg)" alt="wavelength-bands" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../../../categories/OTN/">OTN</a></p>
-                            <p class="item-title"><a href="../../../../../2022/02/06/otn/wavelength-bands/" class="title">wavelength-bands</a></p>
-                            <p class="item-date"><time datetime="2022-02-06T15:33:44.000Z" itemprop="datePublished">2022-02-06</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -529,7 +524,7 @@ background.</p>
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Cpp/">Cpp</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Cpp/">Cpp</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/GDB-Tool/">GDB Tool</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/OTN/">OTN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../../categories/Programming/">Programming</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -539,7 +534,7 @@ background.</p>
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2023/05/">May 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2020/07/">July 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/2019/08/">August 2019</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../../archives/202/03/">March 0202</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -549,7 +544,7 @@ background.</p>
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="../../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
+            <a href="../../../../../tags/Basic/" style="font-size: 10px;">Basic</a> <a href="../../../../../tags/Data-Science/" style="font-size: 10px;">Data Science</a> <a href="../../../../../tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="../../../../../tags/Entropy/" style="font-size: 10px;">Entropy</a> <a href="../../../../../tags/Hash/" style="font-size: 10px;">Hash</a> <a href="../../../../../tags/Invoke-GDB/" style="font-size: 10px;">Invoke GDB</a> <a href="../../../../../tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="../../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../../tags/Network-command/" style="font-size: 10px;">Network command</a> <a href="../../../../../tags/Optical-NetWorking/" style="font-size: 10px;">Optical NetWorking</a> <a href="../../../../../tags/check-process-id/" style="font-size: 10px;">check process id</a> <a href="../../../../../tags/conda/" style="font-size: 10px;">conda</a> <a href="../../../../../tags/cuda/" style="font-size: 10px;">cuda</a> <a href="../../../../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../../../../tags/flex-Grid-spectrum-allocation/" style="font-size: 10px;">flex Grid spectrum allocation</a> <a href="../../../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../../../tags/grey-optics-and-colored-optics/" style="font-size: 10px;">grey optics and colored optics</a> <a href="../../../../../tags/learn-Website/" style="font-size: 10px;">learn-Website</a> <a href="../../../../../tags/list-memory-layout/" style="font-size: 10px;">list memory layout</a> <a href="../../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../../tags/map-memory-layout/" style="font-size: 10px;">map memory layout</a> <a href="../../../../../tags/modules/" style="font-size: 10px;">modules</a> <a href="../../../../../tags/oadm/" style="font-size: 10px;">oadm</a> <a href="../../../../../tags/packages/" style="font-size: 10px;">packages</a> <a href="../../../../../tags/pip/" style="font-size: 10px;">pip</a> <a href="../../../../../tags/protocol-buffer/" style="font-size: 10px;">protocol buffer</a> <a href="../../../../../tags/python/" style="font-size: 20px;">python</a> <a href="../../../../../tags/rsync/" style="font-size: 10px;">rsync</a> <a href="../../../../../tags/shared-ptr-memory-layout/" style="font-size: 10px;">shared_ptr memory layout</a> <a href="../../../../../tags/shell/" style="font-size: 15px;">shell</a> <a href="../../../../../tags/single-carrier-and-multi-carrier/" style="font-size: 10px;">single carrier and multi-carrier</a> <a href="../../../../../tags/source-file-in-GDB/" style="font-size: 10px;">source file in GDB</a> <a href="../../../../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../../../../tags/string-memory-layout/" style="font-size: 10px;">string memory layout</a> <a href="../../../../../tags/tuple-memory-layout/" style="font-size: 10px;">tuple memory layout</a> <a href="../../../../../tags/vector-memory-layout/" style="font-size: 10px;">vector memory layout</a> <a href="../../../../../tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="../../../../../tags/wavelength-bands/" style="font-size: 10px;">wavelength bands</a> <a href="../../../../../tags/windows/" style="font-size: 10px;">windows</a> <a href="../../../../../tags/wsl/" style="font-size: 10px;">wsl</a>
         </div>
     </div>
 
@@ -562,7 +557,7 @@ background.</p>
             <ul>
                 
                     <li>
-                        <a href="http://hexo.io">Hexo</a>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
                     </li>
                 
             </ul>
@@ -585,7 +580,7 @@ background.</p>
                 <h1 class="logo-wrap">
                     <a href="../../../../../index.html" class="logo"></a>
                 </h1>
-                <p>&copy; 2022 YANG Tao</p>
+                <p>&copy; 2023 YANG Tao</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
         </div>
@@ -612,25 +607,47 @@ background.</p>
 
 
     
-        <script src="../../../../../libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="../../../../../libs/lightgallery/js/lg-video.min.js"></script>
+        
+<script src="../../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../../../libs/lightgallery/js/lg-video.min.js"></script>
+
     
     
-        <script src="../../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+        
+<script src="../../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
     
     
 
 
 
 <!-- Custom Scripts -->
+
 <script src="../../../../../js/main.js"></script>
+
 
     </div>
 </body>
